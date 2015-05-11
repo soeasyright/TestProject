@@ -1,0 +1,10 @@
+/* 
+  BaseViewController.strings
+  dynamicLayout
+
+  Created by Viscovery on 2015/5/8.
+  Copyright (c) 2015年 watsons. All rights reserved.
+*/
+
+
+"format_photos_and_videos" = "%ld Photos, %ld Videos";
