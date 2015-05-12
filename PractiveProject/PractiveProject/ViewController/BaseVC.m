@@ -15,19 +15,35 @@
 @end
 
 @implementation BaseVC
-
 @synthesize practiveLists;
+
+#define EZEnum2String(_name_) (@""#_name_)
+
+typedef NS_ENUM(NSInteger,IssueType){
+    IssueTypeTableViewCell,
+    IssueTypeAutoLayout,
+    IssueTypeMax
+};
+
+
 static NSString *IssueIdentifier=@"IssueCell";
 
-
++ (NSDictionary *)typeDisplayNames
+{
+    return @{@(IssueTypeTableViewCell) : EZEnum2String(IssueTypeTableViewCell),
+             @(IssueTypeAutoLayout) : EZEnum2String(IssueTypeAutoLayout)};
+}
+- (NSString *)typeDisplayName:(IssueType) type
+{
+    return [[self class] typeDisplayNames][@(type)];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_tableView registerNib:[UINib nibWithNibName:IssueIdentifier bundle:nil] forCellReuseIdentifier:IssueIdentifier];
     practiveLists=[[NSMutableArray alloc] init];
     for (int i=0; i<IssueTypeMax; i++) {
-        [IssueType.]
         NSMutableDictionary *practiveList = [[NSMutableDictionary alloc] init];
-        [practiveList setObject:EZEnum2String(1) forKey:@"title"];
+        [practiveList setObject:[self typeDisplayName:i] forKey:@"title"];
         [practiveLists addObject:practiveList];
     }
 

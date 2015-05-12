@@ -12,12 +12,5 @@
 #import <UIKit/UIKit.h>
 
 
-#define EZEnum2String(_name_) @#_name_
-
-typedef NS_ENUM(NSInteger,IssueType){
-    IssueTypeTableViewCell,
-    IssueTypeTableViewCell2,
-    IssueTypeMax
-};
 
 #endif
