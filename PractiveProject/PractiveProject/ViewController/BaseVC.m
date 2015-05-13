@@ -17,9 +17,10 @@
 @implementation BaseVC
 @synthesize practiveLists;
 
-#define EZEnum2String(_name_) (@""#_name_)
+#define EZEnum2String(_name_) @#_name_
 
 typedef NS_ENUM(NSInteger,IssueType){
+    IssueTypeStandardUserDefaults,
     IssueTypeTableViewCell,
     IssueTypeAutoLayout,
     IssueTypeMax
@@ -30,18 +31,23 @@ static NSString *IssueIdentifier=@"IssueCell";
 
 + (NSDictionary *)typeDisplayNames
 {
-    return @{@(IssueTypeTableViewCell) : EZEnum2String(IssueTypeTableViewCell),
-             @(IssueTypeAutoLayout) : EZEnum2String(IssueTypeAutoLayout)};
+    return @{
+             @(IssueTypeStandardUserDefaults) : EZEnum2String(IssueTypeStandardUserDefaults),
+             @(IssueTypeTableViewCell) : EZEnum2String(IssueTypeTableViewCell),
+             @(IssueTypeAutoLayout) : EZEnum2String(IssueTypeAutoLayout),
+             };
 }
+
 - (NSString *)typeDisplayName:(IssueType) type
 {
     return [[self class] typeDisplayNames][@(type)];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_tableView registerNib:[UINib nibWithNibName:IssueIdentifier bundle:nil] forCellReuseIdentifier:IssueIdentifier];
     practiveLists=[[NSMutableArray alloc] init];
-    for (int i=0; i<IssueTypeMax; i++) {
+    for (int i = 0; i < IssueTypeMax; i++) {
         NSMutableDictionary *practiveList = [[NSMutableDictionary alloc] init];
         [practiveList setObject:[self typeDisplayName:i] forKey:@"title"];
         [practiveLists addObject:practiveList];
@@ -70,7 +76,7 @@ static NSString *IssueIdentifier=@"IssueCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     IssueCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueIdentifier forIndexPath:indexPath];
-    cell.issueTitle.text=[[self.practiveLists objectAtIndex:indexPath.row] objectForKey:@"title"];
+    cell.issueTitle.text = [[self.practiveLists objectAtIndex:indexPath.row] objectForKey:@"title"];
     return cell;
 
 
@@ -80,7 +86,6 @@ static NSString *IssueIdentifier=@"IssueCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

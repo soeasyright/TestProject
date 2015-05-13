@@ -17,6 +17,8 @@
 		06F616D31B01A8F900A6C7F4 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F616D21B01A8F900A6C7F4 /* TableViewController.m */; };
 		06F616DC1B01CD2300A6C7F4 /* IssueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F616DA1B01CD2300A6C7F4 /* IssueCell.m */; };
 		06F616DD1B01CD2300A6C7F4 /* IssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F616DB1B01CD2300A6C7F4 /* IssueCell.xib */; };
+		06F616E51B02E0B000A6C7F4 /* TemplateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F616E41B02E0B000A6C7F4 /* TemplateVC.m */; };
+		06F616E81B02E34F00A6C7F4 /* UIButton+ActionBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F616E71B02E34F00A6C7F4 /* UIButton+ActionBlock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,10 @@
 		06F616DA1B01CD2300A6C7F4 /* IssueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IssueCell.m; path = Cell/IssueCell.m; sourceTree = "<group>"; };
 		06F616DB1B01CD2300A6C7F4 /* IssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IssueCell.xib; path = Cell/IssueCell.xib; sourceTree = "<group>"; };
 		06F616DE1B01CE3300A6C7F4 /* IssueHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IssueHeader.h; sourceTree = "<group>"; };
+		06F616E31B02E0B000A6C7F4 /* TemplateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateVC.h; path = Common/TemplateVC.h; sourceTree = "<group>"; };
+		06F616E41B02E0B000A6C7F4 /* TemplateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateVC.m; path = Common/TemplateVC.m; sourceTree = "<group>"; };
+		06F616E61B02E34F00A6C7F4 /* UIButton+ActionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+ActionBlock.h"; path = "Common/UIButton+ActionBlock.h"; sourceTree = "<group>"; };
+		06F616E71B02E34F00A6C7F4 /* UIButton+ActionBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+ActionBlock.m"; path = "Common/UIButton+ActionBlock.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 		06F6169D1B01A37700A6C7F4 /* PractiveProject */ = {
 			isa = PBXGroup;
 			children = (
+				06F616E21B02E07200A6C7F4 /* Common */,
 				06F616CB1B01A5F100A6C7F4 /* Cell */,
 				06F616C71B01A41D00A6C7F4 /* ViewController */,
 				06F616A21B01A37700A6C7F4 /* AppDelegate.h */,
@@ -111,6 +118,17 @@
 				06F616DB1B01CD2300A6C7F4 /* IssueCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		06F616E21B02E07200A6C7F4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				06F616E31B02E0B000A6C7F4 /* TemplateVC.h */,
+				06F616E41B02E0B000A6C7F4 /* TemplateVC.m */,
+				06F616E61B02E34F00A6C7F4 /* UIButton+ActionBlock.h */,
+				06F616E71B02E34F00A6C7F4 /* UIButton+ActionBlock.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,9 +205,11 @@
 				06F616A41B01A37700A6C7F4 /* AppDelegate.m in Sources */,
 				06F616D31B01A8F900A6C7F4 /* TableViewController.m in Sources */,
 				06F616A71B01A37700A6C7F4 /* PractiveProject.xcdatamodeld in Sources */,
+				06F616E51B02E0B000A6C7F4 /* TemplateVC.m in Sources */,
 				06F616A11B01A37700A6C7F4 /* main.m in Sources */,
 				06F616CA1B01A47800A6C7F4 /* BaseVC.m in Sources */,
 				06F616DC1B01CD2300A6C7F4 /* IssueCell.m in Sources */,
+				06F616E81B02E34F00A6C7F4 /* UIButton+ActionBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
