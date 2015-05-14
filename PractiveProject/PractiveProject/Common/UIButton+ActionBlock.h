@@ -12,6 +12,6 @@
 @interface UIControl (UIBlockActions)
 
 - (void) addControlEvent:(UIControlEvents) event
-                   withEventBlock:(void (^)(void)) action;
+                   withEventBlock:(void (^)(id sender)) block;
 
 @end

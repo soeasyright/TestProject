@@ -7,6 +7,7 @@
 //
 
 #import "BaseVC.h"
+#import "LifeCycle.h"
 #import "IssueCell.h"
 #import "IssueHeader.h"
 @interface BaseVC ()<UITableViewDelegate>
@@ -20,6 +21,7 @@
 #define EZEnum2String(_name_) @#_name_
 
 typedef NS_ENUM(NSInteger,IssueType){
+    IssueTypeObjectLifeCycle,
     IssueTypeStandardUserDefaults,
     IssueTypeTableViewCell,
     IssueTypeAutoLayout,
@@ -32,6 +34,7 @@ static NSString *IssueIdentifier=@"IssueCell";
 + (NSDictionary *)typeDisplayNames
 {
     return @{
+             @(IssueTypeObjectLifeCycle) : EZEnum2String(IssueTypeObjectLifeCycle),
              @(IssueTypeStandardUserDefaults) : EZEnum2String(IssueTypeStandardUserDefaults),
              @(IssueTypeTableViewCell) : EZEnum2String(IssueTypeTableViewCell),
              @(IssueTypeAutoLayout) : EZEnum2String(IssueTypeAutoLayout),
@@ -87,6 +90,8 @@ static NSString *IssueIdentifier=@"IssueCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LifeCycle *vc=[[LifeCycle alloc]init];
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 
 @end

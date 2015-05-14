@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TemplateVC : UIViewController
-- (void) backMainVC;
-- (void) reSet;
+
 @end

@@ -12,36 +12,24 @@
 
 
 
-@implementation UIControl
+@implementation UIControl(UIBlockActions)
 
 
 static char ConnectionKey;
+typedef void (^BlockAction)(id sender);
 
-- (void)addControlEvent:(UIControlEvents)event withEventBlock:(void (^)(void))block{
-    NSString *methodName = @"";
-    NSMutableDictionary *opreations = (NSMutableDictionary*)objc_getAssociatedObject(self, &OperationKey);
-    if(opreations == nil)
-    {
-        opreations = [[NSMutableDictionary alloc] init];
-        objc_setAssociatedObject(self, &ConnectionKey, opreations, OBJC_ASSOCIATION_RETAIN);
+- (void) addControlEvent:(UIControlEvents) event
+          withEventBlock:(BlockAction) block{
+    //connect opject
+    objc_setAssociatedObject(self, &ConnectionKey, block, OBJC_ASSOCIATION_ASSIGN);
+    [self addTarget:self action:@selector(invokeBlock:) forControlEvents:event];
+}
+
+- (void)invokeBlock:(id)sender {
+    BlockAction block=objc_getAssociatedObject(self, &ConnectionKey);
+    if (block) {
+        block(sender);
     }
-    [opreations setObject:block forKey:methodName];
-    [self addTarget:self action:NSSelectorFromString(methodName) forControlEvents:events];
-
 }
 
-- (void)action:(){
-    
-}
-//- (void)handleControlEvent:(UIControlEvents)event withBlock:(void(^)(id sender))block {
-//    NSString *methodName = [UIControl eventName:event];
-//    NSMutableDictionary *opreations = (NSMutableDictionary*)objc_getAssociatedObject(self, &OperationKey);
-//    if(opreations == nil)
-//    {
-//        opreations = [[NSMutableDictionary alloc] init];
-//        objc_setAssociatedObject(self, &OperationKey, opreations, OBJC_ASSOCIATION_RETAIN);
-//    }
-//    [opreations setObject:block forKey:methodName];
-//    [self addTarget:self action:NSSelectorFromString(methodName) forControlEvents:event];
-//}
 @end
