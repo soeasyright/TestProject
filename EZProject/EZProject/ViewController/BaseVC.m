@@ -91,7 +91,7 @@ static NSString *IssueIdentifier=@"IssueCell";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     LifeCycle *vc=[[LifeCycle alloc]init];
-    [self.navigationController presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

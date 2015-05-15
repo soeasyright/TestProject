@@ -16,23 +16,28 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    UIButton *backMain = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
-//    UIButton *backMain = [[UIButton alloc] init];
-    [backMain setTitle:@"←" forState:UIControlStateNormal];
-    [backMain setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [backMain addTarget:self action:@selector(clickBackMain:) forControlEvents:UIControlEventTouchUpInside];
-    [backMain setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addSubview:backMain];
     
-    UIButton *reset = [[UIButton alloc] initWithFrame:CGRectMake(300, 20, 40, 40)];
-//    UIButton *reset = [[UIButton alloc] init];
-    [reset setTitle:@"reset" forState:UIControlStateNormal];
-    [reset setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [reset addTarget:self action:@selector(clickReset:) forControlEvents:UIControlEventTouchUpInside];
-    [reset setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addSubview:reset];
+    _tableView = [[UITableView alloc] initWithFrame:[self.view frame]];
+
+    [self.view addSubview:_tableView];
+//    [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+//    UIButton *backMain = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
+////    UIButton *backMain = [[UIButton alloc] init];
+//    [backMain setTitle:@"←" forState:UIControlStateNormal];
+//    [backMain setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    [backMain addTarget:self action:@selector(clickBackMain:) forControlEvents:UIControlEventTouchUpInside];
+//    [backMain setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    [self.view addSubview:backMain];
+//    
+//    UIButton *reset = [[UIButton alloc] initWithFrame:CGRectMake(300, 20, 40, 40)];
+////    UIButton *reset = [[UIButton alloc] init];
+//    [reset setTitle:@"reset" forState:UIControlStateNormal];
+//    [reset setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    [reset addTarget:self action:@selector(clickReset:) forControlEvents:UIControlEventTouchUpInside];
+//    [reset setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    [self.view addSubview:reset];
     
     
 //    NSDictionary *views = NSDictionaryOfVariableBindings(backMain, reset);
@@ -64,11 +69,11 @@
 
 }
 
-- (void)clickBackMain:(UIButton *)sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)clickReset:(UIButton *)sender{
-    
-}
+//- (void)clickBackMain:(UIButton *)sender{
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+//
+//- (void)clickReset:(UIButton *)sender{
+//    
+//}
 @end
