@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TemplateVC : UIViewController
+@interface TemplateVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *tableLists;
 @end

@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 
 @interface LifeCycleObject()
-@property NSString *objectName;
+@property (readonly, nonatomic, copy) NSString *objectName;
 @end
 
 @implementation LifeCycleObject

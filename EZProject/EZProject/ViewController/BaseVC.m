@@ -7,21 +7,21 @@
 //
 
 #import "BaseVC.h"
-#import "LifeCycle.h"
-#import "IssueCell.h"
 
-@interface BaseVC ()<UITableViewDelegate>
+#import "LifeCycleTableVC.h"
+@interface BaseVC ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic,strong) NSMutableArray *practiveLists;
+
 @end
 
 @implementation BaseVC
-@synthesize practiveLists;
+
 
 #define EZEnum2String(_name_) @#_name_
 
 typedef NS_ENUM(NSInteger,IssueType){
-    IssueTypeObjectLifeCycle,
+    LifeCycle,
     IssueTypeStandardUserDefaults,
     IssueTypeTableViewCell,
     IssueTypeAutoLayout,
@@ -29,69 +29,139 @@ typedef NS_ENUM(NSInteger,IssueType){
 };
 
 
-static NSString *IssueIdentifier=@"IssueCell";
+static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 
 + (NSDictionary *)typeDisplayNames
 {
     return @{
-             @(IssueTypeObjectLifeCycle) : EZEnum2String(IssueTypeObjectLifeCycle),
+             @(LifeCycle) : EZEnum2String(LifeCycle),
              @(IssueTypeStandardUserDefaults) : EZEnum2String(IssueTypeStandardUserDefaults),
              @(IssueTypeTableViewCell) : EZEnum2String(IssueTypeTableViewCell),
              @(IssueTypeAutoLayout) : EZEnum2String(IssueTypeAutoLayout),
              };
 }
 
-- (NSString *)typeDisplayName:(IssueType) type
++ (NSString *)typeDisplayName:(IssueType) type
 {
     return [[self class] typeDisplayNames][@(type)];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_tableView registerNib:[UINib nibWithNibName:IssueIdentifier bundle:nil] forCellReuseIdentifier:IssueIdentifier];
-    practiveLists=[[NSMutableArray alloc] init];
-    for (int i = 0; i < IssueTypeMax; i++) {
-        NSMutableDictionary *practiveList = [[NSMutableDictionary alloc] init];
-        [practiveList setObject:[self typeDisplayName:i] forKey:@"title"];
-        [practiveLists addObject:practiveList];
-    }
-
-    [self.tableView reloadData];
+//
+//
+//    //load nib view
+////    [collectionView registerNib:[UINib nibWithNibName:IssueIdentifier bundle:nil] forCellReuseIdentifier:IssueIdentifier];
+////    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+//    //set data
+//    practiveLists=[[NSMutableArray alloc] init];
+//    for (int i = 0; i < IssueTypeMax; i++) {
+//        NSMutableDictionary *practiveList = [[NSMutableDictionary alloc] init];
+//        [practiveList setObject:[[self class] typeDisplayName:i] forKey:@"title"];
+//        [practiveLists addObject:practiveList];
+//    }
+//
+//    [self.collectionView reloadData];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:YES]; //ios8
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#pragma mark <UITableViewDataSource>
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.practiveLists count];
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return IssueTypeMax;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
 
-    IssueCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueIdentifier forIndexPath:indexPath];
-    cell.issueTitle.text = [[self.practiveLists objectAtIndex:indexPath.row] objectForKey:@"title"];
+    UILabel *label = (UILabel *)[cell viewWithTag:100];
+//    label.layer.borderColor = [UIColor blackColor].CGColor;
+//    label.layer.borderWidth = 2.0;
+//    label.layer.cornerRadius = 4.0;
+
+    label.text =  [[self class] typeDisplayName:indexPath.row] ;
+
     return cell;
-
-
 }
 
-#pragma mark - Table view delegate
 
+#pragma mark <UITableViewDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    LifeCycle *vc=[[LifeCycle alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    UIViewController *vc=nil;
+    switch (indexPath.row) {
+        case LifeCycle:
+            vc=[[LifeCycleTableVC alloc]init];
+            break;
+            
+        default:
+            break;
+    }
+    if (vc) {
+        [self.navigationController setNavigationBarHidden:NO];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
+
+/*
+ // Uncomment this method to specify if the specified item should be highlighted during tracking
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+	return YES;
+ }
+ */
+
+/*
+ // Uncomment this method to specify if the specified item should be selected
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+ return YES;
+ }
+ */
+
+/*
+ // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
+	return NO;
+ }
+ 
+ - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+	return NO;
+ }
+ 
+ - (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+	
+ }
+ */
+
+
+
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    UIViewController *vc=nil;
+//    switch (indexPath.row) {
+//        case IssueTypeObjectLifeCycle:
+//            vc=[[LifeCycle alloc]init];
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//    if (vc) {
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+//}
 
 @end

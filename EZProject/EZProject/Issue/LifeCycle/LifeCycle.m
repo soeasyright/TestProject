@@ -38,20 +38,20 @@ static char key;//connect with unique address
 - (void)viewDidLoad{
     [super viewDidLoad];
     EZShowFunctionAndViewFrame;
-    UIButton *issue1 = [[UIButton alloc] initWithFrame:CGRectMake(160, 100, 40, 40)];
-    [issue1 setTitle:@"strong&weak" forState:UIControlStateNormal];
-    [issue1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [issue1 addTarget:self action:@selector(issue1:) forControlEvents:UIControlEventTouchUpInside];
-    [issue1 sizeToFit];
-    [issue1 setCenter:CGPointMake(375/2.0, 100)];
-    [self.view addSubview:issue1];
-    UIButton *issue2 = [[UIButton alloc] initWithFrame:CGRectMake(160, 150, 40, 40)];
-    [issue2 setTitle:@"objc_runtime_associate" forState:UIControlStateNormal];
-    [issue2 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [issue2 addTarget:self action:@selector(issue2:) forControlEvents:UIControlEventTouchUpInside];
-    [issue2 sizeToFit];
-    [issue2 setCenter:CGPointMake(375/2.0, 150)];
-    [self.view addSubview:issue2];
+//    UIButton *issue1 = [[UIButton alloc] initWithFrame:CGRectMake(160, 100, 40, 40)];
+//    [issue1 setTitle:@"strong&weak" forState:UIControlStateNormal];
+//    [issue1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    [issue1 addTarget:self action:@selector(issue1:) forControlEvents:UIControlEventTouchUpInside];
+//    [issue1 sizeToFit];
+//    [issue1 setCenter:CGPointMake(375/2.0, 100)];
+//    [self.view addSubview:issue1];
+//    UIButton *issue2 = [[UIButton alloc] initWithFrame:CGRectMake(160, 150, 40, 40)];
+//    [issue2 setTitle:@"objc_runtime_associate" forState:UIControlStateNormal];
+//    [issue2 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    [issue2 addTarget:self action:@selector(issue2:) forControlEvents:UIControlEventTouchUpInside];
+//    [issue2 sizeToFit];
+//    [issue2 setCenter:CGPointMake(375/2.0, 150)];
+//    [self.view addSubview:issue2];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
