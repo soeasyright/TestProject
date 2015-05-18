@@ -19,7 +19,13 @@
     if (!self) {
         return self;
     }
-    _objectName=name;
+    if (name) {
+        _objectName=name;
+    }
+    else
+    {
+        _objectName=@"noName";
+    }
     NSLog(@"create %@",_objectName);
     return self;
 }

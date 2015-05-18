@@ -22,9 +22,9 @@
 
 typedef NS_ENUM(NSInteger,IssueType){
     LifeCycle,
-    IssueTypeStandardUserDefaults,
-    IssueTypeTableViewCell,
-    IssueTypeAutoLayout,
+    StandardUserDefaults,
+    TableViewCell,
+    AutoLayout,
     IssueTypeMax
 };
 
@@ -35,9 +35,9 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 {
     return @{
              @(LifeCycle) : EZEnum2String(LifeCycle),
-             @(IssueTypeStandardUserDefaults) : EZEnum2String(IssueTypeStandardUserDefaults),
-             @(IssueTypeTableViewCell) : EZEnum2String(IssueTypeTableViewCell),
-             @(IssueTypeAutoLayout) : EZEnum2String(IssueTypeAutoLayout),
+             @(StandardUserDefaults) : EZEnum2String(StandardUserDefaults),
+             @(TableViewCell) : EZEnum2String(TableViewCell),
+             @(AutoLayout) : EZEnum2String(AutoLayout),
              };
 }
 
@@ -48,6 +48,7 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 //
 //
 //    //load nib view
@@ -67,6 +68,7 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 //    [self.navigationController setNavigationBarHidden:YES]; //ios8
 }
 - (void)didReceiveMemoryWarning {

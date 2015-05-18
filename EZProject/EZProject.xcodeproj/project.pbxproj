@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0654A73F1B0730D700905994 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0654A73E1B0730D700905994 /* Media.xcassets */; };
 		0654A7481B076F3400905994 /* LifeCycleTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7471B076F3400905994 /* LifeCycleTableVC.m */; };
+		0654A7511B09737600905994 /* LifeCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7501B09737600905994 /* LifeCycleViewController.m */; };
+		0654A7541B09748500905994 /* LiftCycleViewControllerWithXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7531B09748500905994 /* LiftCycleViewControllerWithXib.m */; };
+		0654A7591B09755F00905994 /* LiftCycleViewControllerWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0654A7571B09755F00905994 /* LiftCycleViewControllerWithXib.xib */; };
 		7C15DC071B04EAA90024A217 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC061B04EAA90024A217 /* main.m */; };
 		7C15DC0A1B04EAA90024A217 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC091B04EAA90024A217 /* AppDelegate.m */; };
 		7C15DC0D1B04EAA90024A217 /* EZProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC0B1B04EAA90024A217 /* EZProject.xcdatamodeld */; };
@@ -26,6 +29,12 @@
 		0654A73E1B0730D700905994 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		0654A7461B076F3400905994 /* LifeCycleTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCycleTableVC.h; sourceTree = "<group>"; };
 		0654A7471B076F3400905994 /* LifeCycleTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCycleTableVC.m; sourceTree = "<group>"; };
+		0654A74F1B09737600905994 /* LifeCycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCycleViewController.h; sourceTree = "<group>"; };
+		0654A7501B09737600905994 /* LifeCycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCycleViewController.m; sourceTree = "<group>"; };
+		0654A7521B09748500905994 /* LiftCycleViewControllerWithXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiftCycleViewControllerWithXib.h; sourceTree = "<group>"; };
+		0654A7531B09748500905994 /* LiftCycleViewControllerWithXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiftCycleViewControllerWithXib.m; sourceTree = "<group>"; };
+		0654A7571B09755F00905994 /* LiftCycleViewControllerWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiftCycleViewControllerWithXib.xib; sourceTree = "<group>"; };
+		0654A75D1B09991D00905994 /* needtoadd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = needtoadd.h; sourceTree = "<group>"; };
 		7C15DC011B04EAA90024A217 /* EZProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C15DC051B04EAA90024A217 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C15DC061B04EAA90024A217 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -117,6 +126,7 @@
 			children = (
 				7C15DC461B04F52E0024A217 /* Efficiency */,
 				7C15DC371B04EB480024A217 /* LifeCycle */,
+				0654A75D1B09991D00905994 /* needtoadd.h */,
 			);
 			path = Issue;
 			sourceTree = "<group>";
@@ -130,6 +140,11 @@
 				7C15DC3B1B04EB480024A217 /* LifeCycleObject.m */,
 				0654A7461B076F3400905994 /* LifeCycleTableVC.h */,
 				0654A7471B076F3400905994 /* LifeCycleTableVC.m */,
+				0654A74F1B09737600905994 /* LifeCycleViewController.h */,
+				0654A7501B09737600905994 /* LifeCycleViewController.m */,
+				0654A7521B09748500905994 /* LiftCycleViewControllerWithXib.h */,
+				0654A7531B09748500905994 /* LiftCycleViewControllerWithXib.m */,
+				0654A7571B09755F00905994 /* LiftCycleViewControllerWithXib.xib */,
 			);
 			path = LifeCycle;
 			sourceTree = "<group>";
@@ -211,6 +226,7 @@
 			files = (
 				0654A73F1B0730D700905994 /* Media.xcassets in Resources */,
 				7C15DC131B04EAA90024A217 /* Main.storyboard in Resources */,
+				0654A7591B09755F00905994 /* LiftCycleViewControllerWithXib.xib in Resources */,
 				7C15DC181B04EAA90024A217 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0654A7541B09748500905994 /* LiftCycleViewControllerWithXib.m in Sources */,
 				7C15DC0A1B04EAA90024A217 /* AppDelegate.m in Sources */,
 				7C15DC071B04EAA90024A217 /* main.m in Sources */,
 				0654A7481B076F3400905994 /* LifeCycleTableVC.m in Sources */,
@@ -230,6 +247,7 @@
 				7C15DC441B04EB480024A217 /* LifeCycleObject.m in Sources */,
 				7C15DC0D1B04EAA90024A217 /* EZProject.xcdatamodeld in Sources */,
 				7C15DC491B04F5620024A217 /* Efficiency.m in Sources */,
+				0654A7511B09737600905994 /* LifeCycleViewController.m in Sources */,
 				7C15DC421B04EB480024A217 /* UIButton+ActionBlock.m in Sources */,
 				7C15DC411B04EB480024A217 /* TemplateVC.m in Sources */,
 			);

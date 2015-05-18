@@ -7,7 +7,8 @@
 //
 
 #import "LifeCycleTableVC.h"
-
+#import "LifeCycleViewController.h"
+#import "LiftCycleViewControllerWithXib.h"
 @interface LifeCycleTableVC () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
 
@@ -19,23 +20,25 @@ static NSString *const reuseIdentifer=@"NormalCell";
 #define EZEnum2String(_name_) @#_name_
 
 typedef NS_ENUM(NSInteger,LifeCycleTable){
-    ViewControllerLifeCycle,
-    ViewController_With_StroyBoard,
+    ViewController,
+    ViewController_WithXib,
+    ViewController_WithStroyBoard,
     Object,
-    RunTime_Object,
+    Object_WithRunTime,
     LifeCycleTableMax
 };
 
 
-static  NSString  *const reuseIdentifier=@"reuseIdentifier2";
+static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 
 + (NSDictionary *)typeDisplayNames
 {
     return @{
-             @(ViewControllerLifeCycle) : EZEnum2String(ViewControllerLifeCycle),
-             @(ViewController_With_StroyBoard) : EZEnum2String(ViewController_With_StroyBoard),
+             @(ViewController) : EZEnum2String(ViewController),
+             @(ViewController_WithXib) : EZEnum2String(ViewController_WithXib),
+             @(ViewController_WithStroyBoard) : EZEnum2String(ViewController_WithStroyBoard),
              @(Object) : EZEnum2String(Object),
-             @(RunTime_Object) : EZEnum2String(RunTime_Object),
+             @(Object_WithRunTime) : EZEnum2String(Object_WithRunTime),
              };
 }
 
@@ -84,14 +87,15 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier2";
     UIViewController *vc=nil;
     switch (indexPath.row) {
         case ViewController:
-            vc=[[LifeCycleTableVC alloc]init];
+            vc=[[LifeCycleViewController alloc]init];
             break;
-            
+        case ViewController_WithXib:
+            vc=[[LiftCycleViewControllerWithXib alloc]init];
+            break;
         default:
             break;
     }
     if (vc) {
-        [self.navigationController setNavigationBarHidden:NO];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
