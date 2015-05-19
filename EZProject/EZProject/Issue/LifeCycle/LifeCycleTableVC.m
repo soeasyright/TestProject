@@ -7,8 +7,10 @@
 //
 
 #import "LifeCycleTableVC.h"
+#import "LifeCycle.h"
 #import "LifeCycleViewController.h"
 #import "LiftCycleViewControllerWithXib.h"
+#import "LiftCycleViewControllerWithStroyBoard.h"
 @interface LifeCycleTableVC () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
 
@@ -23,7 +25,6 @@ typedef NS_ENUM(NSInteger,LifeCycleTable){
     ViewController,
     ViewController_WithXib,
     ViewController_WithStroyBoard,
-    Object,
     Object_WithRunTime,
     LifeCycleTableMax
 };
@@ -37,7 +38,6 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
              @(ViewController) : EZEnum2String(ViewController),
              @(ViewController_WithXib) : EZEnum2String(ViewController_WithXib),
              @(ViewController_WithStroyBoard) : EZEnum2String(ViewController_WithStroyBoard),
-             @(Object) : EZEnum2String(Object),
              @(Object_WithRunTime) : EZEnum2String(Object_WithRunTime),
              };
 }
@@ -49,6 +49,8 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.navigationItem.title=@"LifeCycle";
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.delegate=self;
@@ -90,7 +92,20 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
             vc=[[LifeCycleViewController alloc]init];
             break;
         case ViewController_WithXib:
-            vc=[[LiftCycleViewControllerWithXib alloc]init];
+            vc=[[LiftCycleViewControllerWithXib alloc]initWithNibName:@"LiftCycleViewControllerWithXib" bundle:nil];
+            break;
+        case ViewController_WithStroyBoard:
+        {
+             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LiftCycleViewControllerWithStroyBoard" bundle:nil];
+//             vc = [storyboard instantiateInitialViewController];
+            vc=[storyboard instantiateViewControllerWithIdentifier:@"LiftCycleViewControllerWithStroyBoard"];
+        }
+
+            break;
+        case Object_WithRunTime:
+        {
+            vc=[[LifeCycle alloc] initWithNibName:@"LifeCycle" bundle:nil];
+        }
             break;
         default:
             break;

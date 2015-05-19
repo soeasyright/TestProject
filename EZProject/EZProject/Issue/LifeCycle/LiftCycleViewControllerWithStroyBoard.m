@@ -1,19 +1,18 @@
 //
-//  LiftCycleViewControllerWithXib.m
+//  ViewControllerWithStroyBoard.m
 //  EZProject
 //
-//  Created by soeasyright on 2015/5/18.
+//  Created by soeasyright on 2015/5/19.
 //  Copyright (c) 2015年 soeasyright. All rights reserved.
 //
 
-#import "LiftCycleViewControllerWithXib.h"
-#import "LifeCycleObject.h"
-@interface LiftCycleViewControllerWithXib ()
-@property (strong, nonatomic) IBOutlet LifeCycleObject *test;
+#import "LiftCycleViewControllerWithStroyBoard.h"
+
+@interface LiftCycleViewControllerWithStroyBoard ()
 
 @end
 
-@implementation LiftCycleViewControllerWithXib
+@implementation LiftCycleViewControllerWithStroyBoard
 
 #define EZShowFunctionAndViewFrame     \
 NSLog(@"%s",__PRETTY_FUNCTION__); \
@@ -25,7 +24,7 @@ NSLog(@"%@",[NSNumber valueWithCGRect:t.frame]);
     [super viewDidLoad];
     EZShowFunctionAndViewFrame;
     
-//    NSLog(@"%@",[NSNumber valueWithCGRect:self.view.bounds]);
+    //    NSLog(@"%@",[NSNumber valueWithCGRect:self.view.bounds]);
 }
 //2
 - (void)viewWillAppear:(BOOL)animated{
@@ -57,19 +56,19 @@ NSLog(@"%@",[NSNumber valueWithCGRect:t.frame]);
     [super viewDidDisappear:animated];
     EZShowFunctionAndViewFrame;
 }
-//8
-//-(id)initWithCoder:(NSCoder *)aDecoder
-//{
-//        NSLog(@"QQ");
-//    if ((self = [super initWithCoder:aDecoder])) {
-//        
-//    }
-//
-//    return self; 
-//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

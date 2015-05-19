@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0yg-Uz-GvK">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--Lift Cycle View Controller With Stroy Board-->
+        <scene sceneID="ITP-s4-hks">
+            <objects>
+                <viewController storyboardIdentifier="LiftCycleViewControllerWithStroyBoard" id="0yg-Uz-GvK" customClass="LiftCycleViewControllerWithStroyBoard" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="12L-tR-Qo3"/>
+                        <viewControllerLayoutGuide type="bottom" id="AA5-ce-gKM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ReB-k6-7Hf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdX-Sn-o8B">
+                                <rect key="frame" x="100" y="120" width="400" height="380"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zdX-Sn-o8B" secondAttribute="trailing" constant="100" id="0Kp-tV-bdb"/>
+                            <constraint firstItem="zdX-Sn-o8B" firstAttribute="leading" secondItem="ReB-k6-7Hf" secondAttribute="leading" constant="100" id="0x2-y4-EXg"/>
+                            <constraint firstItem="AA5-ce-gKM" firstAttribute="top" secondItem="zdX-Sn-o8B" secondAttribute="bottom" constant="100" id="5BY-rS-5N3"/>
+                            <constraint firstItem="zdX-Sn-o8B" firstAttribute="top" secondItem="12L-tR-Qo3" secondAttribute="bottom" constant="100" id="PMl-D9-b0V"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q4z-lh-0Vm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="273"/>
+        </scene>
+    </scenes>
+</document>

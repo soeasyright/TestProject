@@ -23,6 +23,9 @@
 		7C15DC441B04EB480024A217 /* LifeCycleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC3B1B04EB480024A217 /* LifeCycleObject.m */; };
 		7C15DC451B04EB480024A217 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC3E1B04EB480024A217 /* BaseVC.m */; };
 		7C15DC491B04F5620024A217 /* Efficiency.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC481B04F5620024A217 /* Efficiency.m */; };
+		7CB309851B0B868E007E03B3 /* LiftCycleViewControllerWithStroyBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB309841B0B868E007E03B3 /* LiftCycleViewControllerWithStroyBoard.storyboard */; };
+		7CB309881B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB309871B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.m */; };
+		7CB3098A1B0B8E1B007E03B3 /* LifeCycle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB309891B0B8E1B007E03B3 /* LifeCycle.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,10 @@
 		7C15DC3E1B04EB480024A217 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		7C15DC471B04F5620024A217 /* Efficiency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Efficiency.h; path = Efficiency/Efficiency.h; sourceTree = "<group>"; };
 		7C15DC481B04F5620024A217 /* Efficiency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Efficiency.m; path = Efficiency/Efficiency.m; sourceTree = "<group>"; };
+		7CB309841B0B868E007E03B3 /* LiftCycleViewControllerWithStroyBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LiftCycleViewControllerWithStroyBoard.storyboard; sourceTree = "<group>"; };
+		7CB309861B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiftCycleViewControllerWithStroyBoard.h; sourceTree = "<group>"; };
+		7CB309871B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiftCycleViewControllerWithStroyBoard.m; sourceTree = "<group>"; };
+		7CB309891B0B8E1B007E03B3 /* LifeCycle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LifeCycle.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +143,7 @@
 			children = (
 				7C15DC381B04EB480024A217 /* LifeCycle.h */,
 				7C15DC391B04EB480024A217 /* LifeCycle.m */,
+				7CB309891B0B8E1B007E03B3 /* LifeCycle.xib */,
 				7C15DC3A1B04EB480024A217 /* LifeCycleObject.h */,
 				7C15DC3B1B04EB480024A217 /* LifeCycleObject.m */,
 				0654A7461B076F3400905994 /* LifeCycleTableVC.h */,
@@ -145,6 +153,9 @@
 				0654A7521B09748500905994 /* LiftCycleViewControllerWithXib.h */,
 				0654A7531B09748500905994 /* LiftCycleViewControllerWithXib.m */,
 				0654A7571B09755F00905994 /* LiftCycleViewControllerWithXib.xib */,
+				7CB309861B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.h */,
+				7CB309871B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.m */,
+				7CB309841B0B868E007E03B3 /* LiftCycleViewControllerWithStroyBoard.storyboard */,
 			);
 			path = LifeCycle;
 			sourceTree = "<group>";
@@ -228,6 +239,8 @@
 				7C15DC131B04EAA90024A217 /* Main.storyboard in Resources */,
 				0654A7591B09755F00905994 /* LiftCycleViewControllerWithXib.xib in Resources */,
 				7C15DC181B04EAA90024A217 /* LaunchScreen.xib in Resources */,
+				7CB3098A1B0B8E1B007E03B3 /* LifeCycle.xib in Resources */,
+				7CB309851B0B868E007E03B3 /* LiftCycleViewControllerWithStroyBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB309881B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.m in Sources */,
 				0654A7541B09748500905994 /* LiftCycleViewControllerWithXib.m in Sources */,
 				7C15DC0A1B04EAA90024A217 /* AppDelegate.m in Sources */,
 				7C15DC071B04EAA90024A217 /* main.m in Sources */,
