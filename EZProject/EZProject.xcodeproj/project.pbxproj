@@ -12,6 +12,8 @@
 		0654A7511B09737600905994 /* LifeCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7501B09737600905994 /* LifeCycleViewController.m */; };
 		0654A7541B09748500905994 /* LiftCycleViewControllerWithXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7531B09748500905994 /* LiftCycleViewControllerWithXib.m */; };
 		0654A7591B09755F00905994 /* LiftCycleViewControllerWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0654A7571B09755F00905994 /* LiftCycleViewControllerWithXib.xib */; };
+		06EECF3F1B0CB86000F6A4FB /* FormatterTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EECF3E1B0CB86000F6A4FB /* FormatterTableVC.m */; };
+		06EECF431B0CBB1700F6A4FB /* GraphicesTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EECF421B0CBB1700F6A4FB /* GraphicesTableVC.m */; };
 		7C15DC071B04EAA90024A217 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC061B04EAA90024A217 /* main.m */; };
 		7C15DC0A1B04EAA90024A217 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC091B04EAA90024A217 /* AppDelegate.m */; };
 		7C15DC0D1B04EAA90024A217 /* EZProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC0B1B04EAA90024A217 /* EZProject.xcdatamodeld */; };
@@ -22,7 +24,7 @@
 		7C15DC431B04EB480024A217 /* LifeCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC391B04EB480024A217 /* LifeCycle.m */; };
 		7C15DC441B04EB480024A217 /* LifeCycleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC3B1B04EB480024A217 /* LifeCycleObject.m */; };
 		7C15DC451B04EB480024A217 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC3E1B04EB480024A217 /* BaseVC.m */; };
-		7C15DC491B04F5620024A217 /* Efficiency.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC481B04F5620024A217 /* Efficiency.m */; };
+		7C15DC491B04F5620024A217 /* EfficiencyTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC481B04F5620024A217 /* EfficiencyTableVC.m */; };
 		7CB309851B0B868E007E03B3 /* LiftCycleViewControllerWithStroyBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB309841B0B868E007E03B3 /* LiftCycleViewControllerWithStroyBoard.storyboard */; };
 		7CB309881B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB309871B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.m */; };
 		7CB3098A1B0B8E1B007E03B3 /* LifeCycle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB309891B0B8E1B007E03B3 /* LifeCycle.xib */; };
@@ -38,6 +40,10 @@
 		0654A7531B09748500905994 /* LiftCycleViewControllerWithXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiftCycleViewControllerWithXib.m; sourceTree = "<group>"; };
 		0654A7571B09755F00905994 /* LiftCycleViewControllerWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiftCycleViewControllerWithXib.xib; sourceTree = "<group>"; };
 		0654A75D1B09991D00905994 /* needtoadd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = needtoadd.h; sourceTree = "<group>"; };
+		06EECF3D1B0CB86000F6A4FB /* FormatterTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormatterTableVC.h; path = Formatter/FormatterTableVC.h; sourceTree = "<group>"; };
+		06EECF3E1B0CB86000F6A4FB /* FormatterTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormatterTableVC.m; path = Formatter/FormatterTableVC.m; sourceTree = "<group>"; };
+		06EECF411B0CBB1700F6A4FB /* GraphicesTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphicesTableVC.h; path = Graphics/GraphicesTableVC.h; sourceTree = "<group>"; };
+		06EECF421B0CBB1700F6A4FB /* GraphicesTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphicesTableVC.m; path = Graphics/GraphicesTableVC.m; sourceTree = "<group>"; };
 		7C15DC011B04EAA90024A217 /* EZProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C15DC051B04EAA90024A217 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C15DC061B04EAA90024A217 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -56,8 +62,8 @@
 		7C15DC3B1B04EB480024A217 /* LifeCycleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCycleObject.m; sourceTree = "<group>"; };
 		7C15DC3D1B04EB480024A217 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
 		7C15DC3E1B04EB480024A217 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
-		7C15DC471B04F5620024A217 /* Efficiency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Efficiency.h; path = Efficiency/Efficiency.h; sourceTree = "<group>"; };
-		7C15DC481B04F5620024A217 /* Efficiency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Efficiency.m; path = Efficiency/Efficiency.m; sourceTree = "<group>"; };
+		7C15DC471B04F5620024A217 /* EfficiencyTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EfficiencyTableVC.h; path = Efficiency/EfficiencyTableVC.h; sourceTree = "<group>"; };
+		7C15DC481B04F5620024A217 /* EfficiencyTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EfficiencyTableVC.m; path = Efficiency/EfficiencyTableVC.m; sourceTree = "<group>"; };
 		7CB309841B0B868E007E03B3 /* LiftCycleViewControllerWithStroyBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LiftCycleViewControllerWithStroyBoard.storyboard; sourceTree = "<group>"; };
 		7CB309861B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiftCycleViewControllerWithStroyBoard.h; sourceTree = "<group>"; };
 		7CB309871B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiftCycleViewControllerWithStroyBoard.m; sourceTree = "<group>"; };
@@ -75,6 +81,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06EECF3C1B0CB82900F6A4FB /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				06EECF3D1B0CB86000F6A4FB /* FormatterTableVC.h */,
+				06EECF3E1B0CB86000F6A4FB /* FormatterTableVC.m */,
+			);
+			name = Formatter;
+			sourceTree = "<group>";
+		};
+		06EECF401B0CBAB500F6A4FB /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				06EECF411B0CBB1700F6A4FB /* GraphicesTableVC.h */,
+				06EECF421B0CBB1700F6A4FB /* GraphicesTableVC.m */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
 		7C15DBF81B04EAA80024A217 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +155,8 @@
 		7C15DC361B04EB480024A217 /* Issue */ = {
 			isa = PBXGroup;
 			children = (
+				06EECF401B0CBAB500F6A4FB /* Graphics */,
+				06EECF3C1B0CB82900F6A4FB /* Formatter */,
 				7C15DC461B04F52E0024A217 /* Efficiency */,
 				7C15DC371B04EB480024A217 /* LifeCycle */,
 				0654A75D1B09991D00905994 /* needtoadd.h */,
@@ -172,8 +198,8 @@
 		7C15DC461B04F52E0024A217 /* Efficiency */ = {
 			isa = PBXGroup;
 			children = (
-				7C15DC471B04F5620024A217 /* Efficiency.h */,
-				7C15DC481B04F5620024A217 /* Efficiency.m */,
+				7C15DC471B04F5620024A217 /* EfficiencyTableVC.h */,
+				7C15DC481B04F5620024A217 /* EfficiencyTableVC.m */,
 			);
 			name = Efficiency;
 			sourceTree = "<group>";
@@ -255,12 +281,14 @@
 				0654A7541B09748500905994 /* LiftCycleViewControllerWithXib.m in Sources */,
 				7C15DC0A1B04EAA90024A217 /* AppDelegate.m in Sources */,
 				7C15DC071B04EAA90024A217 /* main.m in Sources */,
+				06EECF3F1B0CB86000F6A4FB /* FormatterTableVC.m in Sources */,
 				0654A7481B076F3400905994 /* LifeCycleTableVC.m in Sources */,
 				7C15DC431B04EB480024A217 /* LifeCycle.m in Sources */,
 				7C15DC451B04EB480024A217 /* BaseVC.m in Sources */,
+				06EECF431B0CBB1700F6A4FB /* GraphicesTableVC.m in Sources */,
 				7C15DC441B04EB480024A217 /* LifeCycleObject.m in Sources */,
 				7C15DC0D1B04EAA90024A217 /* EZProject.xcdatamodeld in Sources */,
-				7C15DC491B04F5620024A217 /* Efficiency.m in Sources */,
+				7C15DC491B04F5620024A217 /* EfficiencyTableVC.m in Sources */,
 				0654A7511B09737600905994 /* LifeCycleViewController.m in Sources */,
 				7C15DC421B04EB480024A217 /* UIButton+ActionBlock.m in Sources */,
 				7C15DC411B04EB480024A217 /* TemplateVC.m in Sources */,

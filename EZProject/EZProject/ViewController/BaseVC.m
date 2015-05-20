@@ -7,8 +7,10 @@
 //
 
 #import "BaseVC.h"
-
+#import "EfficiencyTableVC.h"
 #import "LifeCycleTableVC.h"
+#import "FormatterTableVC.h"
+#import "GraphicesTableVC.h"
 @interface BaseVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -22,6 +24,9 @@
 
 typedef NS_ENUM(NSInteger,IssueType){
     LifeCycle,
+    Efficiency,
+    Formatter,
+    Graphices,
     StandardUserDefaults,
     TableViewCell,
     AutoLayout,
@@ -35,14 +40,44 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 {
     return @{
              @(LifeCycle) : EZEnum2String(LifeCycle),
+             @(Efficiency) : EZEnum2String(Efficiency),
+             @(Formatter) : EZEnum2String(Formatter),
+             @(Graphices) : EZEnum2String(Graphices),
              @(StandardUserDefaults) : EZEnum2String(StandardUserDefaults),
              @(TableViewCell) : EZEnum2String(TableViewCell),
              @(AutoLayout) : EZEnum2String(AutoLayout),
              };
 }
 
-+ (NSString *)typeDisplayName:(IssueType) type
+
+#pragma mark <UITableViewDelegate>
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIViewController *vc=nil;
+    switch (indexPath.row) {
+        case LifeCycle:
+            vc=[[LifeCycleTableVC alloc]init];
+            break;
+        case Efficiency:
+             vc=[[EfficiencyTableVC alloc]init];
+            break;
+        case Formatter:
+            vc=[[FormatterTableVC alloc]init];
+            break;
+        case Graphices:
+            vc=[[GraphicesTableVC alloc]init];
+            break;
+
+        default:
+            break;
+    }
+    if (vc) {
+        [self.navigationController setNavigationBarHidden:NO];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
++ (NSString *)typeDisplayName:(IssueType) type{
     return [[self class] typeDisplayNames][@(type)];
 }
 
@@ -100,23 +135,6 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 }
 
 
-#pragma mark <UITableViewDelegate>
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UIViewController *vc=nil;
-    switch (indexPath.row) {
-        case LifeCycle:
-            vc=[[LifeCycleTableVC alloc]init];
-            break;
-            
-        default:
-            break;
-    }
-    if (vc) {
-        [self.navigationController setNavigationBarHidden:NO];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-}
 
 /*
  // Uncomment this method to specify if the specified item should be highlighted during tracking

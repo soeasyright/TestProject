@@ -18,8 +18,8 @@
 
 @implementation LifeCycleTableVC
 
-static NSString *const reuseIdentifer=@"NormalCell";
-#define EZEnum2String(_name_) @#_name_
+
+
 
 typedef NS_ENUM(NSInteger,LifeCycleTable){
     ViewController,
@@ -30,8 +30,8 @@ typedef NS_ENUM(NSInteger,LifeCycleTable){
 };
 
 
-static  NSString  *const reuseIdentifier=@"reuseIdentifier";
-
+static NSString *const reuseIdentifier=@"reuseIdentifier";
+#define EZEnum2String(_name_) @#_name_
 + (NSDictionary *)typeDisplayNames
 {
     return @{
@@ -75,7 +75,7 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifer ];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier ];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
