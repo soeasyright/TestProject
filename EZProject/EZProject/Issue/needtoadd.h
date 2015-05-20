@@ -9,6 +9,14 @@
 #ifndef EZProject_needtoadd_h
 #define EZProject_needtoadd_h
 
+
+//intriduce page
+// https://github.com/MatthewYork/iPhone-IntroductionTutorial
+//https://github.com/ealeksandrov/EAIntroView
+//https://github.com/GnosisHub/GHWalkThrough
+//https://github.com/icepat/ICETutorial
+//https://github.com/Appsido/AOTutorial
+
 //layoutSubviews在以下情况下会被调用：
 //
 //1、init初始化不会触发layoutSubviews

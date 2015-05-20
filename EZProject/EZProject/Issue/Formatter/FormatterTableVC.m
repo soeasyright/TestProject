@@ -16,7 +16,8 @@
 @implementation FormatterTableVC
 
 typedef NS_ENUM(NSInteger,FormatterTable){
-    Formatter_NSDateFormatter,
+    Formatter_NSDate2NSString,
+    Formatter_NSData2NSString,
     Efficiency_Forin,
     Efficiency_MakeObjectsPerformSelector,
     Efficiency_EnumerateObjectsUsingBlock,
@@ -32,7 +33,8 @@ static NSString *const reuseIdentifier=@"reuseIdentifier";
 + (NSDictionary *)typeDisplayNames
 {
     return @{
-             @(Formatter_NSDateFormatter) : EZEnum2String(Formatter_NSDateFormatter),
+             @(Formatter_NSDate2NSString) : EZEnum2String(Formatter_NSDate2NSString),
+             @(Formatter_NSData2NSString) : EZEnum2String(Formatter_NSData2NSString),
              @(Efficiency_Forin) : EZEnum2String(Efficiency_Forin),
              @(Efficiency_MakeObjectsPerformSelector) : EZEnum2String(Efficiency_MakeObjectsPerformSelector),
              @(Efficiency_EnumerateObjectsUsingBlock) : EZEnum2String(Efficiency_EnumerateObjectsUsingBlock),
@@ -97,10 +99,12 @@ static NSString *const reuseIdentifier=@"reuseIdentifier";
 
         }
             break;
-        case Efficiency_Forin:
+        case Formatter_NSData2NSString:
         {
-
+            NSData* nsData = [@"testdata" dataUsingEncoding:NSUTF8StringEncoding];
+            NSString *result = [[NSString alloc] initWithData:nsData  encoding:NSUTF8StringEncoding]; 
         }
+
             break;
         case Efficiency_EnumerateObjectsWithOptions:
         {
