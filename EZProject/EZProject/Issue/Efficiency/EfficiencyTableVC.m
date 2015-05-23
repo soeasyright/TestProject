@@ -7,6 +7,7 @@
 //
 
 #import "EfficiencyTableVC.h"
+#import "EZMacro.h"
 
 @interface EfficiencyTableVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
@@ -15,16 +16,16 @@
 
 @implementation EfficiencyTableVC
 
-typedef NS_ENUM(NSInteger,EfficiencyTable){
-    Efficiency_ForLoop,
-    Efficiency_Forin,
-    Efficiency_MakeObjectsPerformSelector,
-    Efficiency_EnumerateObjectsUsingBlock,
-    Efficiency_EnumerateObjectsWithOptions,
-    Efficiency_Dispatch_apply,
-    EfficiencyTableMax
+typedef NS_ENUM(NSInteger,IssueNamePlusTable(Efficiency)){
+    ForLoop,
+    Forin,
+    MakeObjectsPerformSelector,
+    EnumerateObjectsUsingBlock,
+    EnumerateObjectsWithOptions,
+    Dispatch_apply,
+    IssueNamePlusTableMax(Efficiency)
 };
-
+EZTableCreate(Efficiency);
 //for in (NSFastEnumeration)
 //makeObjectsPerformSelector
 //kvc集合运算符
@@ -33,25 +34,25 @@ typedef NS_ENUM(NSInteger,EfficiencyTable){
 //dispatch_apply
 
 @synthesize test;
-static NSString *const reuseIdentifier=@"reuseIdentifier";
-#define EZEnum2String(_name_) @#_name_
+
+
 + (NSDictionary *)typeDisplayNames
 {
     return @{
-             @(Efficiency_ForLoop) : EZEnum2String(Efficiency_ForLoop),
-             @(Efficiency_Forin) : EZEnum2String(Efficiency_Forin),
-             @(Efficiency_MakeObjectsPerformSelector) : EZEnum2String(Efficiency_MakeObjectsPerformSelector),
-             @(Efficiency_EnumerateObjectsUsingBlock) : EZEnum2String(Efficiency_EnumerateObjectsUsingBlock),
-             @(Efficiency_EnumerateObjectsWithOptions) : EZEnum2String(Efficiency_EnumerateObjectsWithOptions),
-             @(Efficiency_Dispatch_apply) : EZEnum2String(Efficiency_Dispatch_apply),
+             @(ForLoop) : EZEnum2String(ForLoop),
+             @(Forin) : EZEnum2String(Forin),
+             @(MakeObjectsPerformSelector) : EZEnum2String(MakeObjectsPerformSelector),
+             @(EnumerateObjectsUsingBlock) : EZEnum2String(EnumerateObjectsUsingBlock),
+             @(EnumerateObjectsWithOptions) : EZEnum2String(EnumerateObjectsWithOptions),
+             @(Dispatch_apply) : EZEnum2String(Dispatch_apply),
              };
 }
 
 #pragma mark <UITableViewDelegate>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIViewController *vc=nil;
+
     switch (indexPath.row) {
-        case Efficiency_ForLoop:
+        case ForLoop:
         {
             int sum = 0;
             NSUInteger count = test.count;
@@ -62,7 +63,7 @@ static NSString *const reuseIdentifier=@"reuseIdentifier";
             NSLog(@"ForLoop Time: %f", CFAbsoluteTimeGetCurrent() - date_s);
         }
             break;
-        case Efficiency_Forin:
+        case Forin:
         {
             int sum = 0;
             double date_s =  CFAbsoluteTimeGetCurrent();
@@ -79,7 +80,7 @@ static NSString *const reuseIdentifier=@"reuseIdentifier";
             NSLog(@"ForLoop Time reverse: %f", CFAbsoluteTimeGetCurrent() - date_s);
         }
             break;
-        case Efficiency_EnumerateObjectsWithOptions:
+        case EnumerateObjectsWithOptions:
         {
             __block int sum = 0;
             double date_s = CFAbsoluteTimeGetCurrent();
@@ -96,62 +97,22 @@ static NSString *const reuseIdentifier=@"reuseIdentifier";
 
         }
             break;
-        case Efficiency_MakeObjectsPerformSelector:
+        case MakeObjectsPerformSelector:
             break;
         default:
             break;
     }
-    if (vc) {
-        [self.navigationController pushViewController:vc animated:YES];
-    }
 }
 
 
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.navigationItem.title=@"LifeCycle";
-    _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    _tableView.backgroundColor = [UIColor whiteColor];
-    _tableView.delegate=self;
-    _tableView.dataSource=self;
-    [self.view addSubview:_tableView];
-    
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     test = [NSMutableArray array];
     for (int i= 0; i < 10000000; i++) {
         [test addObject:@(i)];
     }
-
-}
-+ (NSString *)typeDisplayName:(EfficiencyTable) type
-{
-    return [[self class] typeDisplayNames][@(type)];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
-}
-
-#pragma mark <UITableViewDataSource>
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return EfficiencyTableMax;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier ];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-    }
-    cell.textLabel.text =  [[self class] typeDisplayName:indexPath.row] ;
-    cell.textLabel.textAlignment=NSTextAlignmentCenter;
-    return cell;
 }
 
 @end

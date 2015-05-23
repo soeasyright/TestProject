@@ -1,5 +1,5 @@
 //
-//  GraphicesTableVC.m
+//  
 //  EZProject
 //
 //  Created by Viscovery on 2015/5/20.
@@ -8,51 +8,146 @@
 
 #import "GraphicesTableVC.h"
 
-
+#import "EZMacro.h"
 @interface GraphicesTableVC () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) CAShapeLayer *shapeLayer;
 @end
 
 @implementation GraphicesTableVC
+@synthesize imageView,shapeLayer;
 
-typedef NS_ENUM(NSInteger,GraphicesTable){
-    Efficiency_ForLoop,
-    Efficiency_Forin,
-    Efficiency_MakeObjectsPerformSelector,
-    Efficiency_EnumerateObjectsUsingBlock,
-    Efficiency_EnumerateObjectsWithOptions,
-    Efficiency_Dispatch_apply,
-    EfficiencyTableMax
+typedef NS_ENUM(NSInteger,IssueNamePlusTable(Graphices)){
+    AllClear,
+    CABasicAnimationMove,
+    CABasicAnimationStroke,
+    Line,
+    Circle,
+    Hexagon,
+
+    IssueNamePlusTableMax(Graphices)
 };
 
-@synthesize imageView;
-static NSString *const reuseIdentifier=@"reuseIdentifier";
-#define EZEnum2String(_name_) @#_name_
+EZTableCreate(Graphices);
 + (NSDictionary *)typeDisplayNames
 {
     return @{
-             @(Efficiency_ForLoop) : EZEnum2String(Efficiency_ForLoop),
-             @(Efficiency_Forin) : EZEnum2String(Efficiency_Forin),
-             @(Efficiency_MakeObjectsPerformSelector) : EZEnum2String(Efficiency_MakeObjectsPerformSelector),
-             @(Efficiency_EnumerateObjectsUsingBlock) : EZEnum2String(Efficiency_EnumerateObjectsUsingBlock),
-             @(Efficiency_EnumerateObjectsWithOptions) : EZEnum2String(Efficiency_EnumerateObjectsWithOptions),
-             @(Efficiency_Dispatch_apply) : EZEnum2String(Efficiency_Dispatch_apply),
+             @(CABasicAnimationStroke) : EZEnum2String(CABasicAnimationStroke),
+             @(CABasicAnimationMove) : EZEnum2String(CABasicAnimationMove),
+             @(AllClear) : EZEnum2String(AllClear),
+             @(Line) : EZEnum2String(Line),
+             @(Circle) : EZEnum2String(Circle),
+             @(Hexagon) : EZEnum2String(Hexagon),
              };
 }
 
 #pragma mark <UITableViewDelegate>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIViewController *vc=nil;
+    UIGraphicsBeginImageContext(imageView.frame.size);
+    //生成畫布
+    CGContextRef context = UIGraphicsGetCurrentContext();
     switch (indexPath.row) {
-        case Efficiency_ForLoop:
+        case CABasicAnimationStroke:
         {
-            imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, 300.0, 200.0)];
-            imageView.center = self.view.center;
+            UIGraphicsEndImageContext();
+            shapeLayer = [CAShapeLayer layer];
+            self.shapeLayer.fillColor = nil;
+            self.shapeLayer.lineWidth = 7;
+            self.shapeLayer.strokeColor = [UIColor blackColor].CGColor;
+            self.shapeLayer.bounds = CGRectMake(200, 200, 200, 200);
+            self.shapeLayer.path = [UIBezierPath bezierPathWithOvalInRect:self.shapeLayer.bounds].CGPath;
+            [self.imageView.layer addSublayer:self.shapeLayer];
             
-            UIGraphicsBeginImageContext(imageView.frame.size);
-            CGContextRef context = UIGraphicsGetCurrentContext();
+
+
+
+
+            //move
+            CABasicAnimation *strokeStart = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+            strokeStart.toValue = @(0.7);
+            CABasicAnimation *strokeEnd = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+            strokeEnd.toValue = @(1.0);
             
+            CAAnimationGroup *group = [[CAAnimationGroup alloc]init];
+            group.animations = @[strokeStart,strokeEnd];
+            // 动画选项的设定
+            group.duration = 3.0; // 持续时间
+            group.repeatCount = HUGE; // forver
+            // 起始帧和终了帧的设定
+            group.autoreverses = YES;
+
+            // 添加动画
+            [shapeLayer addAnimation:group forKey:@"strokeStart"];
+            return;
+        }
+            break;
+        case CABasicAnimationMove:
+        {
+            UIGraphicsEndImageContext();
+            NSIndexPath *copyIndex=[NSIndexPath indexPathForRow:Circle inSection:0];
+            [self tableView:tableView didSelectRowAtIndexPath:copyIndex];
+            
+            
+            //move
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+            // 动画选项的设定
+            animation.duration = 2.5; // 持续时间
+            animation.repeatCount = 1; // 重复次数
+            // 起始帧和终了帧的设定
+            animation.fromValue = [NSValue valueWithCGPoint:imageView.layer.position]; // 起始帧
+            animation.toValue = [NSValue valueWithCGPoint:CGPointMake(320, 480)]; // 终了帧
+            // 添加动画  
+            [imageView.layer addAnimation:animation forKey:@"move-layer"];
+            return;
+        }
+            break;
+        case Circle:
+        {
+            //線的顏色
+            CGContextSetStrokeColorWithColor(context,[UIColor blueColor].CGColor);
+            //填充顏色
+            CGContextSetFillColorWithColor(context,[UIColor redColor].CGColor);
+            //線的寬度
+            CGContextSetLineWidth(context, 4.0f);
+            
+            //畫陰影
+            //offset,blur,color
+            CGContextSetShadow(context, CGSizeMake(10, 10), 0.1);
+
+            //畫圓
+            // x,y,stratAngle,endAngle
+            CGContextAddArc(context, 150.0, 150.0, 50.0, 0, 2 * M_PI, 1);
+            //填滿路徑
+            CGContextDrawPath(context, kCGPathFillStroke);
+//            CGContextClosePath(context);
+//            CGContextStrokePath(context);
+
+
+        }
+            break;
+        case Line:
+        {
+            //線的顏色
+            CGContextSetStrokeColorWithColor(context,[UIColor blueColor].CGColor);
+            //線的寬度
+            CGContextSetLineWidth(context, 4.0f);
+            //將筆移動到
+            CGContextMoveToPoint(context, 0.0, 0.0);
+            //畫線
+            CGContextAddLineToPoint(context,300.0,0.0);
+            CGContextClosePath(context);
+            CGContextStrokePath(context);
+        }
+            break;
+        case AllClear:
+        {
+//             [imageView removeFromSuperview];
+        }
+            break;
+        case Hexagon:
+        {
+
             CGContextBeginPath(context);
             CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
             
@@ -67,32 +162,15 @@ static NSString *const reuseIdentifier=@"reuseIdentifier";
             CGContextClosePath(context);
             CGContextDrawPath(context, kCGPathFill);
             
-            imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-            
-            [self.view addSubview:imageView];
 
         }
             break;
-        case Efficiency_Forin:
-        {
 
-        }
-            break;
-        case Efficiency_EnumerateObjectsWithOptions:
-        {
-
-            
-        }
-            break;
-        case Efficiency_MakeObjectsPerformSelector:
-            break;
         default:
             break;
     }
-    if (vc) {
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -119,50 +197,13 @@ static NSString *const reuseIdentifier=@"reuseIdentifier";
     if (CGPathContainsPoint(myPath, NULL, point, YES)) {
         NSLog(@"點擊區域在圖形之內");
     }
-    
     CGPathRelease(myPath);
 }
-
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.navigationItem.title=@"LifeCycle";
-    _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    _tableView.backgroundColor = [UIColor whiteColor];
-    _tableView.delegate=self;
-    _tableView.dataSource=self;
-    [self.view addSubview:_tableView];
-    
-    
-}
-+ (NSString *)typeDisplayName:(GraphicesTable) type
+-(void)viewDidAppear:(BOOL)animated
 {
-    return [[self class] typeDisplayNames][@(type)];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
-
-#pragma mark <UITableViewDataSource>
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return EfficiencyTableMax;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier ];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-    }
-    cell.textLabel.text =  [[self class] typeDisplayName:indexPath.row] ;
-    cell.textLabel.textAlignment=NSTextAlignmentCenter;
-    return cell;
+    [super viewDidAppear:animated];
+    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, 300.0, 300.0)];
+    imageView.center = self.view.center;
+    [self.view addSubview:imageView];
 }
 @end

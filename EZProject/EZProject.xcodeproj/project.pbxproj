@@ -40,6 +40,7 @@
 		0654A7531B09748500905994 /* LiftCycleViewControllerWithXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiftCycleViewControllerWithXib.m; sourceTree = "<group>"; };
 		0654A7571B09755F00905994 /* LiftCycleViewControllerWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiftCycleViewControllerWithXib.xib; sourceTree = "<group>"; };
 		0654A75D1B09991D00905994 /* needtoadd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = needtoadd.h; sourceTree = "<group>"; };
+		067C958C1B1099590052308D /* EZMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EZMacro.h; sourceTree = "<group>"; };
 		06EECF3D1B0CB86000F6A4FB /* FormatterTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormatterTableVC.h; path = Formatter/FormatterTableVC.h; sourceTree = "<group>"; };
 		06EECF3E1B0CB86000F6A4FB /* FormatterTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormatterTableVC.m; path = Formatter/FormatterTableVC.m; sourceTree = "<group>"; };
 		06EECF411B0CBB1700F6A4FB /* GraphicesTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphicesTableVC.h; path = Graphics/GraphicesTableVC.h; sourceTree = "<group>"; };
@@ -148,6 +149,7 @@
 				7C15DC331B04EB480024A217 /* TemplateVC.m */,
 				7C15DC341B04EB480024A217 /* UIButton+ActionBlock.h */,
 				7C15DC351B04EB480024A217 /* UIButton+ActionBlock.m */,
+				067C958C1B1099590052308D /* EZMacro.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";

@@ -7,47 +7,38 @@
 //
 
 #import "FormatterTableVC.h"
+#import "EZMacro.h"
+
+
 
 @interface FormatterTableVC () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
-
 @end
 
 @implementation FormatterTableVC
 
-typedef NS_ENUM(NSInteger,FormatterTable){
-    Formatter_NSDate2NSString,
-    Formatter_NSData2NSString,
-    Efficiency_Forin,
-    Efficiency_MakeObjectsPerformSelector,
-    Efficiency_EnumerateObjectsUsingBlock,
-    Efficiency_EnumerateObjectsWithOptions,
-    Efficiency_Dispatch_apply,
-    EfficiencyTableMax
+typedef NS_ENUM(NSInteger, IssueNamePlusTable(Formatter) ){
+    NSDate2NSString,
+    NSData2NSString,
+    IssueNamePlusTableMax(Formatter)
 };
+EZTableCreate(Formatter);
 
 
 
-static NSString *const reuseIdentifier=@"reuseIdentifier";
-#define EZEnum2String(_name_) @#_name_
+
 + (NSDictionary *)typeDisplayNames
 {
     return @{
-             @(Formatter_NSDate2NSString) : EZEnum2String(Formatter_NSDate2NSString),
-             @(Formatter_NSData2NSString) : EZEnum2String(Formatter_NSData2NSString),
-             @(Efficiency_Forin) : EZEnum2String(Efficiency_Forin),
-             @(Efficiency_MakeObjectsPerformSelector) : EZEnum2String(Efficiency_MakeObjectsPerformSelector),
-             @(Efficiency_EnumerateObjectsUsingBlock) : EZEnum2String(Efficiency_EnumerateObjectsUsingBlock),
-             @(Efficiency_EnumerateObjectsWithOptions) : EZEnum2String(Efficiency_EnumerateObjectsWithOptions),
-             @(Efficiency_Dispatch_apply) : EZEnum2String(Efficiency_Dispatch_apply),
+             @(NSDate2NSString) : EZEnum2String(NSDate2NSString),
+             @(NSData2NSString) : EZEnum2String(Formatter_NSData2NSString),
              };
 }
 
 #pragma mark <UITableViewDelegate>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIViewController *vc=nil;
     switch (indexPath.row) {
-        case Formatter_NSDateFormatter:
+        case NSDate2NSString:
         {
             {
             NSDate *date = [NSDate date];
@@ -99,73 +90,17 @@ static NSString *const reuseIdentifier=@"reuseIdentifier";
 
         }
             break;
-        case Formatter_NSData2NSString:
+        case NSData2NSString:
         {
             NSData* nsData = [@"testdata" dataUsingEncoding:NSUTF8StringEncoding];
-            NSString *result = [[NSString alloc] initWithData:nsData  encoding:NSUTF8StringEncoding]; 
-        }
-
-            break;
-        case Efficiency_EnumerateObjectsWithOptions:
-        {
-
+            NSString *result = [[NSString alloc] initWithData:nsData  encoding:NSUTF8StringEncoding];
             
         }
-            break;
-        case Efficiency_MakeObjectsPerformSelector:
+
             break;
         default:
             break;
     }
-    if (vc) {
-        [self.navigationController pushViewController:vc animated:YES];
-    }
 }
-
-
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.navigationItem.title=@"LifeCycle";
-    _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    _tableView.backgroundColor = [UIColor whiteColor];
-    _tableView.delegate=self;
-    _tableView.dataSource=self;
-    [self.view addSubview:_tableView];
-    
-}
-+ (NSString *)typeDisplayName:(FormatterTable) type
-{
-    return [[self class] typeDisplayNames][@(type)];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
-
-#pragma mark <UITableViewDataSource>
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return EfficiencyTableMax;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier ];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-    }
-    cell.textLabel.text =  [[self class] typeDisplayName:indexPath.row] ;
-    cell.textLabel.textAlignment=NSTextAlignmentCenter;
-    return cell;
-}
-
-
-
 
 @end
