@@ -12,6 +12,7 @@
 		0654A7511B09737600905994 /* LifeCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7501B09737600905994 /* LifeCycleViewController.m */; };
 		0654A7541B09748500905994 /* LiftCycleViewControllerWithXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7531B09748500905994 /* LiftCycleViewControllerWithXib.m */; };
 		0654A7591B09755F00905994 /* LiftCycleViewControllerWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0654A7571B09755F00905994 /* LiftCycleViewControllerWithXib.xib */; };
+		069E9E791B118021009F6765 /* LifeCycleUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 069E9E781B118021009F6765 /* LifeCycleUIView.m */; };
 		06EECF3F1B0CB86000F6A4FB /* FormatterTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EECF3E1B0CB86000F6A4FB /* FormatterTableVC.m */; };
 		06EECF431B0CBB1700F6A4FB /* GraphicesTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EECF421B0CBB1700F6A4FB /* GraphicesTableVC.m */; };
 		7C15DC071B04EAA90024A217 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C15DC061B04EAA90024A217 /* main.m */; };
@@ -41,6 +42,9 @@
 		0654A7571B09755F00905994 /* LiftCycleViewControllerWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiftCycleViewControllerWithXib.xib; sourceTree = "<group>"; };
 		0654A75D1B09991D00905994 /* needtoadd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = needtoadd.h; sourceTree = "<group>"; };
 		067C958C1B1099590052308D /* EZMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EZMacro.h; sourceTree = "<group>"; };
+		069E9E771B118021009F6765 /* LifeCycleUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCycleUIView.h; sourceTree = "<group>"; };
+		069E9E781B118021009F6765 /* LifeCycleUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCycleUIView.m; sourceTree = "<group>"; };
+		069E9E7A1B11C4A7009F6765 /* CommonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
 		06EECF3D1B0CB86000F6A4FB /* FormatterTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormatterTableVC.h; path = Formatter/FormatterTableVC.h; sourceTree = "<group>"; };
 		06EECF3E1B0CB86000F6A4FB /* FormatterTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormatterTableVC.m; path = Formatter/FormatterTableVC.m; sourceTree = "<group>"; };
 		06EECF411B0CBB1700F6A4FB /* GraphicesTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphicesTableVC.h; path = Graphics/GraphicesTableVC.h; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				7C15DC341B04EB480024A217 /* UIButton+ActionBlock.h */,
 				7C15DC351B04EB480024A217 /* UIButton+ActionBlock.m */,
 				067C958C1B1099590052308D /* EZMacro.h */,
+				069E9E7A1B11C4A7009F6765 /* CommonMacro.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -174,6 +179,8 @@
 				7CB309891B0B8E1B007E03B3 /* LifeCycle.xib */,
 				7C15DC3A1B04EB480024A217 /* LifeCycleObject.h */,
 				7C15DC3B1B04EB480024A217 /* LifeCycleObject.m */,
+				069E9E771B118021009F6765 /* LifeCycleUIView.h */,
+				069E9E781B118021009F6765 /* LifeCycleUIView.m */,
 				0654A7461B076F3400905994 /* LifeCycleTableVC.h */,
 				0654A7471B076F3400905994 /* LifeCycleTableVC.m */,
 				0654A74F1B09737600905994 /* LifeCycleViewController.h */,
@@ -284,6 +291,7 @@
 				7C15DC0A1B04EAA90024A217 /* AppDelegate.m in Sources */,
 				7C15DC071B04EAA90024A217 /* main.m in Sources */,
 				06EECF3F1B0CB86000F6A4FB /* FormatterTableVC.m in Sources */,
+				069E9E791B118021009F6765 /* LifeCycleUIView.m in Sources */,
 				0654A7481B076F3400905994 /* LifeCycleTableVC.m in Sources */,
 				7C15DC431B04EB480024A217 /* LifeCycle.m in Sources */,
 				7C15DC451B04EB480024A217 /* BaseVC.m in Sources */,

@@ -13,10 +13,13 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) CAShapeLayer *shapeLayer;
+@property (nonatomic, strong) UIButton *btn;
+@property (nonatomic, strong) NSTimer *pressingTimer;
+@property (nonatomic, assign) float fillPercent;
 @end
 
 @implementation GraphicesTableVC
-@synthesize imageView,shapeLayer;
+@synthesize imageView,shapeLayer,btn;
 
 typedef NS_ENUM(NSInteger,IssueNamePlusTable(Graphices)){
     AllClear,
@@ -25,6 +28,7 @@ typedef NS_ENUM(NSInteger,IssueNamePlusTable(Graphices)){
     Line,
     Circle,
     Hexagon,
+
 
     IssueNamePlusTableMax(Graphices)
 };
@@ -44,22 +48,21 @@ EZTableCreate(Graphices);
 
 #pragma mark <UITableViewDelegate>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIGraphicsBeginImageContext(imageView.frame.size);
-    //生成畫布
-    CGContextRef context = UIGraphicsGetCurrentContext();
+
     switch (indexPath.row) {
         case CABasicAnimationStroke:
         {
-            UIGraphicsEndImageContext();
+
             shapeLayer = [CAShapeLayer layer];
             self.shapeLayer.fillColor = nil;
             self.shapeLayer.lineWidth = 7;
             self.shapeLayer.strokeColor = [UIColor blackColor].CGColor;
-            self.shapeLayer.bounds = CGRectMake(200, 200, 200, 200);
+            self.shapeLayer.frame = CGRectMake(50, 50, 200, 200);
             self.shapeLayer.path = [UIBezierPath bezierPathWithOvalInRect:self.shapeLayer.bounds].CGPath;
             [self.imageView.layer addSublayer:self.shapeLayer];
             
-
+            NSLog(@"strokeStart %f",self.shapeLayer.strokeStart);
+            NSLog(@"strokeEnd %f",self.shapeLayer.strokeEnd);
 
 
 
@@ -67,12 +70,12 @@ EZTableCreate(Graphices);
             CABasicAnimation *strokeStart = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
             strokeStart.toValue = @(0.7);
             CABasicAnimation *strokeEnd = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-            strokeEnd.toValue = @(1.0);
+            strokeEnd.toValue = @(0.9);
             
             CAAnimationGroup *group = [[CAAnimationGroup alloc]init];
             group.animations = @[strokeStart,strokeEnd];
             // 动画选项的设定
-            group.duration = 3.0; // 持续时间
+            group.duration = 1.5; // 持续时间
             group.repeatCount = HUGE; // forver
             // 起始帧和终了帧的设定
             group.autoreverses = YES;
@@ -84,11 +87,6 @@ EZTableCreate(Graphices);
             break;
         case CABasicAnimationMove:
         {
-            UIGraphicsEndImageContext();
-            NSIndexPath *copyIndex=[NSIndexPath indexPathForRow:Circle inSection:0];
-            [self tableView:tableView didSelectRowAtIndexPath:copyIndex];
-            
-            
             //move
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
             // 动画选项的设定
@@ -104,6 +102,9 @@ EZTableCreate(Graphices);
             break;
         case Circle:
         {
+            UIGraphicsBeginImageContext(imageView.frame.size);
+            //生成畫布
+            CGContextRef context = UIGraphicsGetCurrentContext();
             //線的顏色
             CGContextSetStrokeColorWithColor(context,[UIColor blueColor].CGColor);
             //填充顏色
@@ -122,12 +123,16 @@ EZTableCreate(Graphices);
             CGContextDrawPath(context, kCGPathFillStroke);
 //            CGContextClosePath(context);
 //            CGContextStrokePath(context);
-
+            imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
 
         }
             break;
         case Line:
         {
+            UIGraphicsBeginImageContext(imageView.frame.size);
+            //生成畫布
+            CGContextRef context = UIGraphicsGetCurrentContext();
             //線的顏色
             CGContextSetStrokeColorWithColor(context,[UIColor blueColor].CGColor);
             //線的寬度
@@ -138,16 +143,20 @@ EZTableCreate(Graphices);
             CGContextAddLineToPoint(context,300.0,0.0);
             CGContextClosePath(context);
             CGContextStrokePath(context);
+            imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
         }
             break;
         case AllClear:
         {
-//             [imageView removeFromSuperview];
+
         }
             break;
         case Hexagon:
         {
-
+            UIGraphicsBeginImageContext(imageView.frame.size);
+            //生成畫布
+            CGContextRef context = UIGraphicsGetCurrentContext();
             CGContextBeginPath(context);
             CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
             
@@ -161,16 +170,17 @@ EZTableCreate(Graphices);
             
             CGContextClosePath(context);
             CGContextDrawPath(context, kCGPathFill);
-            
+            imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
 
         }
             break;
 
+
         default:
             break;
     }
-    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -205,5 +215,60 @@ EZTableCreate(Graphices);
     imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, 300.0, 300.0)];
     imageView.center = self.view.center;
     [self.view addSubview:imageView];
+    
+    btn = [[UIButton alloc] initWithFrame:CGRectMake(0.0,500.0,50.0,50.0)];
+    btn.titleLabel.text =@"hihihihi";
+    [btn setImage:[UIImage imageNamed:@"Download"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(touchON:) forControlEvents:UIControlEventTouchDown];
+    
+    shapeLayer = [[CAShapeLayer alloc] init];
+    CGPathRef path = CGPathCreateWithRect(CGRectMake(0.0,0.0,50.0,50.0), NULL);
+    shapeLayer.path = path;
+    CGPathRelease(path);
+    
+    btn.imageView.layer.mask = shapeLayer;
+
+
+    [self.view addSubview:btn];
+}
+- (void)touchON:(UIButton *)sender{
+    NSLog(@"ON");
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        [shapeLayer setFrame:CGRectMake(0,
+                                            0,
+                                            50,
+                                            10)];
+        
+    }];
+//    [self createTimer:YES];
+}
+- (void) createTimer: (BOOL) timer
+{
+
+    if(timer){
+        if(!self.pressingTimer){
+            self.pressingTimer = [NSTimer scheduledTimerWithTimeInterval:4/(1/0.01)
+                                                                  target:self
+                                                                selector:@selector(emptyButton)
+                                                                userInfo:nil repeats:YES];
+        }
+    }else{
+        if(self.pressingTimer){
+            [self.pressingTimer invalidate];
+            self.pressingTimer = nil;
+        }
+        
+    }
+    
+}
+- (void) emptyButton
+{
+
+    [self setFillPercent:_fillPercent-0.01];
+    
+    if(self.fillPercent<0.0){
+            [self createTimer:NO];
+    }
 }
 @end

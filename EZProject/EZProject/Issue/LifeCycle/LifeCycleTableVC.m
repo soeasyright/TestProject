@@ -40,22 +40,22 @@ EZTableCreate(LifeCycle);
     UIViewController *vc=nil;
     switch (indexPath.row) {
         case ViewController:
-            vc=[[LifeCycleViewController alloc]init];
+            vc = [[LifeCycleViewController alloc]init];
             break;
         case ViewController_WithXib:
-            vc=[[LiftCycleViewControllerWithXib alloc]initWithNibName:@"LiftCycleViewControllerWithXib" bundle:nil];
+            vc = [[LiftCycleViewControllerWithXib alloc] initWithNibName:@"LiftCycleViewControllerWithXib" bundle:nil];
             break;
         case ViewController_WithStroyBoard:
         {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LiftCycleViewControllerWithStroyBoard" bundle:nil];
             //             vc = [storyboard instantiateInitialViewController];
-            vc=[storyboard instantiateViewControllerWithIdentifier:@"LiftCycleViewControllerWithStroyBoard"];
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"LiftCycleViewControllerWithStroyBoard"];
         }
             
             break;
         case Object_WithRunTime:
         {
-            vc=[[LifeCycle alloc] initWithNibName:@"LifeCycle" bundle:nil];
+            vc = [[LifeCycle alloc] initWithNibName:@"LifeCycle" bundle:nil];
         }
             break;
         default:

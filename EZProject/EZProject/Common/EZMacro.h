@@ -25,6 +25,9 @@ _tableView.backgroundColor = [UIColor whiteColor];\
 _tableView.delegate=self;\
 _tableView.dataSource=self;\
 [self.view addSubview:_tableView];\
+UIView *view = [[UIView alloc] init];\
+view.backgroundColor = [UIColor clearColor];\
+[_tableView setTableFooterView:view];\
 }\
 + (NSString *)typeDisplayName:(IssueNamePlusTable(_name_)) type{\
     return [[self class] typeDisplayNames][@(type)];\
@@ -32,7 +35,6 @@ _tableView.dataSource=self;\
 - (void)didReceiveMemoryWarning {\
     [super didReceiveMemoryWarning];\
 }\
-static NSString *const reuseIdentifier=@"reuseIdentifier";\
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {\
     return 1;\
 }\
@@ -41,6 +43,7 @@ static NSString *const reuseIdentifier=@"reuseIdentifier";\
     return IssueNamePlusTableMax(_name_);\
 }\
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {\
+    static NSString *const reuseIdentifier=@"reuseIdentifier";\
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier ];\
     if (!cell) {\
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];\

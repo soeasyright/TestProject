@@ -20,6 +20,8 @@ NSLog(@"%s",__PRETTY_FUNCTION__); \
 NSLog(@"%@",[NSNumber valueWithCGRect:self.view.frame]);\
 UIView* t=(UIView*)[self.view viewWithTag:1];\
 NSLog(@"%@",[NSNumber valueWithCGRect:t.frame]);
+
+
 //1
 - (void)viewDidLoad{
     [super viewDidLoad];

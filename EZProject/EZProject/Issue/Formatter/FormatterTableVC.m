@@ -98,6 +98,37 @@ EZTableCreate(Formatter);
         }
 
             break;
+            //兩點距離
+//        {
+//            CLLocation *orig=[[CLLocation alloc] initWithLatitude:[mainDelegate.latitude_self doubleValue]  longitude:[mainDelegate.longitude_self doubleValue]];
+//            CLLocation* dist=[[CLLocation alloc] initWithLatitude:[tmpNewsModel.latitude doubleValue] longitude:[tmpNewsModel.longitude doubleValue]];
+//            
+//            CLLocationDistance kilometers=[orig distanceFromLocation:dist]/1000;
+//        }
+            //16進位轉顏色
+//        {
+//            if ([[hexString substringToIndex:1] isEqualToString:@"#"]) {
+//                hexString = [hexString substringFromIndex:1];
+//            }
+//            
+//            unsigned rgbValue = 0;
+//            NSScanner *scanner = [NSScanner scannerWithString:hexString];
+//            [scanner scanHexInt:&rgbValue];
+//            
+//            return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
+//        }
+            //螢幕截圖
+//        {
+//            UIGraphicsBeginImageContext(self.view.bounds.size);
+//            
+//            [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+//            
+//            UIImage *image= UIGraphicsGetImageFromCurrentImageContext();
+//            
+//            UIGraphicsEndImageContext();
+//            
+//            UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+//        }
         default:
             break;
     }

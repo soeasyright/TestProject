@@ -7,34 +7,30 @@
 //
 
 #import "BaseVC.h"
+#import "EZMacro.h"
 #import "EfficiencyTableVC.h"
 #import "LifeCycleTableVC.h"
 #import "FormatterTableVC.h"
 #import "GraphicesTableVC.h"
 @interface BaseVC ()<UITableViewDelegate,UITableViewDataSource>
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation BaseVC
 
 
-#define EZEnum2String(_name_) @#_name_
 
-typedef NS_ENUM(NSInteger,IssueType){
+typedef NS_ENUM(NSInteger,IssueNamePlusTable(IssueType)){
     LifeCycle,
     Efficiency,
     Formatter,
     Graphices,
-    StandardUserDefaults,
-    TableViewCell,
-    AutoLayout,
-    IssueTypeMax
+//    StandardUserDefaults,
+//    TableViewCell,
+//    AutoLayout,
+    IssueNamePlusTableMax(IssueType)
 };
 
-
-static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 
 + (NSDictionary *)typeDisplayNames
 {
@@ -43,9 +39,9 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
              @(Efficiency) : EZEnum2String(Efficiency),
              @(Formatter) : EZEnum2String(Formatter),
              @(Graphices) : EZEnum2String(Graphices),
-             @(StandardUserDefaults) : EZEnum2String(StandardUserDefaults),
-             @(TableViewCell) : EZEnum2String(TableViewCell),
-             @(AutoLayout) : EZEnum2String(AutoLayout),
+//             @(StandardUserDefaults) : EZEnum2String(StandardUserDefaults),
+//             @(TableViewCell) : EZEnum2String(TableViewCell),
+//             @(AutoLayout) : EZEnum2String(AutoLayout),
              };
 }
 
@@ -77,33 +73,27 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
     }
 }
 
-+ (NSString *)typeDisplayName:(IssueType) type{
++ (NSString *)typeDisplayName:(IssueNamePlusTable(IssueType)) type{
     return [[self class] typeDisplayNames][@(type)];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    load nib view
+//    [collectionView registerNib:[UINib nibWithNibName:IssueIdentifier bundle:nil] forCellReuseIdentifier:IssueIdentifier];
+//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 
-//
-//
-//    //load nib view
-////    [collectionView registerNib:[UINib nibWithNibName:IssueIdentifier bundle:nil] forCellReuseIdentifier:IssueIdentifier];
-////    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-//    //set data
-//    practiveLists=[[NSMutableArray alloc] init];
-//    for (int i = 0; i < IssueTypeMax; i++) {
-//        NSMutableDictionary *practiveList = [[NSMutableDictionary alloc] init];
-//        [practiveList setObject:[[self class] typeDisplayName:i] forKey:@"title"];
-//        [practiveLists addObject:practiveList];
-//    }
-//
-//    [self.collectionView reloadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
+    
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:2 inSection:0];
+//    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 //    [self.navigationController setNavigationBarHidden:YES]; //ios8
 }
 - (void)didReceiveMemoryWarning {
@@ -112,12 +102,13 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 
 
 #pragma mark <UITableViewDataSource>
+static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return IssueTypeMax;
+    return IssueNamePlusTableMax(IssueType);
 }
 
 
@@ -125,63 +116,11 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
 
     UILabel *label = (UILabel *)[cell viewWithTag:100];
-//    label.layer.borderColor = [UIColor blackColor].CGColor;
-//    label.layer.borderWidth = 2.0;
-//    label.layer.cornerRadius = 4.0;
-
     label.text =  [[self class] typeDisplayName:indexPath.row] ;
-
     return cell;
 }
 
 
 
-/*
- // Uncomment this method to specify if the specified item should be highlighted during tracking
- - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
- }
- */
-
-/*
- // Uncomment this method to specify if the specified item should be selected
- - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
- return YES;
- }
- */
-
-/*
- // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
- - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
- }
- 
- - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
- }
- 
- - (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
- }
- */
-
-
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    UIViewController *vc=nil;
-//    switch (indexPath.row) {
-//        case IssueTypeObjectLifeCycle:
-//            vc=[[LifeCycle alloc]init];
-//            break;
-//            
-//        default:
-//            break;
-//    }
-//    if (vc) {
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
-//}
 
 @end
