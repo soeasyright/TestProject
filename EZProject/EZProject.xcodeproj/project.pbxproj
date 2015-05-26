@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062CBA7C1B14AA6F00DC6E37 /* AnimationTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBA7B1B14AA6F00DC6E37 /* AnimationTableVC.m */; };
+		062CBA801B14B2F600DC6E37 /* BaseViewTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBA7F1B14B2F600DC6E37 /* BaseViewTableVC.m */; };
+		062CBA831B14B36E00DC6E37 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBA821B14B36E00DC6E37 /* TableViewController.m */; };
 		0654A73F1B0730D700905994 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0654A73E1B0730D700905994 /* Media.xcassets */; };
 		0654A7481B076F3400905994 /* LifeCycleTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7471B076F3400905994 /* LifeCycleTableVC.m */; };
 		0654A7511B09737600905994 /* LifeCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7501B09737600905994 /* LifeCycleViewController.m */; };
@@ -32,6 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		062CBA7A1B14AA6E00DC6E37 /* AnimationTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationTableVC.h; path = Animation/AnimationTableVC.h; sourceTree = "<group>"; };
+		062CBA7B1B14AA6F00DC6E37 /* AnimationTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimationTableVC.m; path = Animation/AnimationTableVC.m; sourceTree = "<group>"; };
+		062CBA7E1B14B2F600DC6E37 /* BaseViewTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewTableVC.h; path = BaseView/BaseViewTableVC.h; sourceTree = "<group>"; };
+		062CBA7F1B14B2F600DC6E37 /* BaseViewTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewTableVC.m; path = BaseView/BaseViewTableVC.m; sourceTree = "<group>"; };
+		062CBA811B14B36E00DC6E37 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = BaseView/TableViewController.h; sourceTree = "<group>"; };
+		062CBA821B14B36E00DC6E37 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = BaseView/TableViewController.m; sourceTree = "<group>"; };
 		0654A73E1B0730D700905994 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		0654A7461B076F3400905994 /* LifeCycleTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCycleTableVC.h; sourceTree = "<group>"; };
 		0654A7471B076F3400905994 /* LifeCycleTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCycleTableVC.m; sourceTree = "<group>"; };
@@ -86,6 +95,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		062CBA791B14AA4700DC6E37 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				062CBA7A1B14AA6E00DC6E37 /* AnimationTableVC.h */,
+				062CBA7B1B14AA6F00DC6E37 /* AnimationTableVC.m */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
+		062CBA7D1B14B2DF00DC6E37 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				062CBA7E1B14B2F600DC6E37 /* BaseViewTableVC.h */,
+				062CBA7F1B14B2F600DC6E37 /* BaseViewTableVC.m */,
+				062CBA811B14B36E00DC6E37 /* TableViewController.h */,
+				062CBA821B14B36E00DC6E37 /* TableViewController.m */,
+			);
+			name = BaseView;
+			sourceTree = "<group>";
+		};
 		06EECF3C1B0CB82900F6A4FB /* Formatter */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +191,8 @@
 		7C15DC361B04EB480024A217 /* Issue */ = {
 			isa = PBXGroup;
 			children = (
+				062CBA7D1B14B2DF00DC6E37 /* BaseView */,
+				062CBA791B14AA4700DC6E37 /* Animation */,
 				06EECF401B0CBAB500F6A4FB /* Graphics */,
 				06EECF3C1B0CB82900F6A4FB /* Formatter */,
 				7C15DC461B04F52E0024A217 /* Efficiency */,
@@ -291,7 +322,9 @@
 				7C15DC0A1B04EAA90024A217 /* AppDelegate.m in Sources */,
 				7C15DC071B04EAA90024A217 /* main.m in Sources */,
 				06EECF3F1B0CB86000F6A4FB /* FormatterTableVC.m in Sources */,
+				062CBA7C1B14AA6F00DC6E37 /* AnimationTableVC.m in Sources */,
 				069E9E791B118021009F6765 /* LifeCycleUIView.m in Sources */,
+				062CBA801B14B2F600DC6E37 /* BaseViewTableVC.m in Sources */,
 				0654A7481B076F3400905994 /* LifeCycleTableVC.m in Sources */,
 				7C15DC431B04EB480024A217 /* LifeCycle.m in Sources */,
 				7C15DC451B04EB480024A217 /* BaseVC.m in Sources */,
@@ -300,6 +333,7 @@
 				7C15DC0D1B04EAA90024A217 /* EZProject.xcdatamodeld in Sources */,
 				7C15DC491B04F5620024A217 /* EfficiencyTableVC.m in Sources */,
 				0654A7511B09737600905994 /* LifeCycleViewController.m in Sources */,
+				062CBA831B14B36E00DC6E37 /* TableViewController.m in Sources */,
 				7C15DC421B04EB480024A217 /* UIButton+ActionBlock.m in Sources */,
 				7C15DC411B04EB480024A217 /* TemplateVC.m in Sources */,
 			);

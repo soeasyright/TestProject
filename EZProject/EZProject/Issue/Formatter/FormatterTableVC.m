@@ -20,6 +20,8 @@
 typedef NS_ENUM(NSInteger, IssueNamePlusTable(Formatter) ){
     NSDate2NSString,
     NSData2NSString,
+    UIImage2NSData,
+    NSString2UIImage,
     IssueNamePlusTableMax(Formatter)
 };
 EZTableCreate(Formatter);
@@ -32,12 +34,36 @@ EZTableCreate(Formatter);
     return @{
              @(NSDate2NSString) : EZEnum2String(NSDate2NSString),
              @(NSData2NSString) : EZEnum2String(Formatter_NSData2NSString),
+             @(UIImage2NSData) : EZEnum2String(UIImage2NSData),
+             @(NSString2UIImage) : EZEnum2String(NSString2UIImage),
              };
 }
 
 #pragma mark <UITableViewDelegate>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
+        case NSString2UIImage:
+        {
+            NSString *tmp=@"iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAWJQAAFiUBSVIk8AAAABxpRE9UAAAAAgAAAAAAAAAZAAAAKAAAABkAAAAZAAABE73c2/MAAADfSURBVGgF7JG9bcNgEEM1QkbJBh4t3CijZASPYvMVbNJYCAsqgB9wuOY7/kjH8eb9Bf7NF/hw0tuL4c0lIdiX5+55nBzecnMZKPHjOVvg9ztuL/GHvosSKYXGlE+7J0y70ZohO7cFco/WDNk5QdqN1gzZuS2Qe7RmyM4J0m60ZsjObYHcozVDdk6QdqM1Q3ZuC+QerRmyc4K0G60ZsnNbIPdozZCdE6TdaM2QndsCuUdrhuycIO1Ga4bs3BbIPVozZOcEaTdaM2TntkDu0ZohOydIu9GaITu3BXKP1p95AgAA///0IgbQAAAAw0lEQVTtlNEJwzAQQzNCRuwIGUkjdJSO0A0yQipB76elJE5jnwwWGBvnbN47Q6bpOwu3Vo7NdIhNjLu5scJVIrgOicgUxjJ3AZYELI4OuMwPMs0lElELLrqXcJI5/RIhETO4yHqZyyQyZS6XyJCpJtFSprpEC5lmEjVlmkvUkAEvnePijFkA//6adYdFQIqzMjprFZCmVEZnLANSHZVRrXVAuj0Z1XQRkPKXjL51FZD2U0Z7XWYh9fM9tB4ZHRgdSOrAC+cZaWgO7IKqAAAAAElFTkSuQmCC";
+            NSData *imagedata = [[NSData alloc]initWithBase64EncodedString:tmp
+                                                                   options:NSDataBase64DecodingIgnoreUnknownCharacters];
+            UIImage *image = [[UIImage alloc] initWithData:imagedata];
+            UIImageView *imagev = [[UIImageView alloc]initWithImage:image];
+            imagev.frame = CGRectMake(100, 100, 100, 100);
+            [self.view addSubview:imagev];
+            
+
+        }
+            break;
+        case UIImage2NSData:
+        {
+            UIImage *image = [UIImage imageNamed:@"Download"];
+            NSData *imagedata = UIImagePNGRepresentation(image);
+            NSString *stringImage = [imagedata base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+            NSLog(@"%@",stringImage);
+            
+        }
+            break;
         case NSDate2NSString:
         {
             {

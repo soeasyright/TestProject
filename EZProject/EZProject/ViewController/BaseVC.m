@@ -12,6 +12,8 @@
 #import "LifeCycleTableVC.h"
 #import "FormatterTableVC.h"
 #import "GraphicesTableVC.h"
+#import "AnimationTableVC.h"
+#import "BaseViewTableVC.h"
 @interface BaseVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -25,6 +27,8 @@ typedef NS_ENUM(NSInteger,IssueNamePlusTable(IssueType)){
     Efficiency,
     Formatter,
     Graphices,
+    Animation,
+    BaseView,
 //    StandardUserDefaults,
 //    TableViewCell,
 //    AutoLayout,
@@ -39,6 +43,8 @@ typedef NS_ENUM(NSInteger,IssueNamePlusTable(IssueType)){
              @(Efficiency) : EZEnum2String(Efficiency),
              @(Formatter) : EZEnum2String(Formatter),
              @(Graphices) : EZEnum2String(Graphices),
+             @(Animation) : EZEnum2String(Animation),
+             @(BaseView) : EZEnum2String(BaseView),
 //             @(StandardUserDefaults) : EZEnum2String(StandardUserDefaults),
 //             @(TableViewCell) : EZEnum2String(TableViewCell),
 //             @(AutoLayout) : EZEnum2String(AutoLayout),
@@ -63,7 +69,12 @@ typedef NS_ENUM(NSInteger,IssueNamePlusTable(IssueType)){
         case Graphices:
             vc=[[GraphicesTableVC alloc]init];
             break;
-
+        case Animation:
+            vc=[[AnimationTableVC alloc]init];
+            break;
+        case BaseView:
+            vc=[[BaseViewTableVC alloc]init];
+            break;
         default:
             break;
     }
