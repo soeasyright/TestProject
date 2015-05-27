@@ -11,7 +11,7 @@
 
 
 //intriduce page
-// https://github.com/MatthewYork/iPhone-IntroductionTutorial
+//https://github.com/MatthewYork/iPhone-IntroductionTutorial
 //https://github.com/ealeksandrov/EAIntroView
 //https://github.com/GnosisHub/GHWalkThrough
 //https://github.com/icepat/ICETutorial

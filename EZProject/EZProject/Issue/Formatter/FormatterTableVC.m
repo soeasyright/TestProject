@@ -20,7 +20,7 @@
 typedef NS_ENUM(NSInteger, IssueNamePlusTable(Formatter) ){
     NSDate2NSString,
     NSData2NSString,
-    UIImage2NSData,
+    UIImage2NSString,
     NSString2UIImage,
     IssueNamePlusTableMax(Formatter)
 };
@@ -34,7 +34,7 @@ EZTableCreate(Formatter);
     return @{
              @(NSDate2NSString) : EZEnum2String(NSDate2NSString),
              @(NSData2NSString) : EZEnum2String(Formatter_NSData2NSString),
-             @(UIImage2NSData) : EZEnum2String(UIImage2NSData),
+             @(UIImage2NSString) : EZEnum2String(UIImage2NSString),
              @(NSString2UIImage) : EZEnum2String(NSString2UIImage),
              };
 }
@@ -55,12 +55,13 @@ EZTableCreate(Formatter);
 
         }
             break;
-        case UIImage2NSData:
+        case UIImage2NSString:
         {
             UIImage *image = [UIImage imageNamed:@"Download"];
             NSData *imagedata = UIImagePNGRepresentation(image);
             NSString *stringImage = [imagedata base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-            NSLog(@"%@",stringImage);
+            EZShowValue(stringImage);
+
             
         }
             break;
@@ -71,7 +72,7 @@ EZTableCreate(Formatter);
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"YYYY-MM-dd"];
             NSString *correctDate = [formatter stringFromDate:date];
-            NSLog(@"correctDate %@",correctDate);
+            EZShowValue(correctDate);
 //            a        AM/PM (上午/下午)
 //            K        0~11 有0時的12小時制
 //            h        1~12 12小時制
@@ -120,7 +121,7 @@ EZTableCreate(Formatter);
         {
             NSData* nsData = [@"testdata" dataUsingEncoding:NSUTF8StringEncoding];
             NSString *result = [[NSString alloc] initWithData:nsData  encoding:NSUTF8StringEncoding];
-            
+            EZShowValue(result);
         }
 
             break;
@@ -158,6 +159,7 @@ EZTableCreate(Formatter);
         default:
             break;
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

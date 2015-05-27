@@ -11,12 +11,14 @@
 
 #define EZEnum2String(_name_) @#_name_
 
+#define EZShowValue(_name_) NSLog(@#_name_" %@",_name_)
 
 
 #define IssueNamePlusTable(_name_) _name_##Table
 #define IssueNamePlusTableMax(_name_) _name_##TableMax
 
 #define EZTableCreate(_name_) \
+static NSString *const reuseIdentifier=@"reuseIdentifier";\
 - (void)viewDidLoad {\
 [super viewDidLoad];\
 self.navigationItem.title=@#_name_;\
@@ -24,6 +26,7 @@ _tableView = [[UITableView alloc] initWithFrame:self.view.frame];\
 _tableView.backgroundColor = [UIColor whiteColor];\
 _tableView.delegate=self;\
 _tableView.dataSource=self;\
+[_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reuseIdentifier];\
 [self.view addSubview:_tableView];\
 UIView *view = [[UIView alloc] init];\
 view.backgroundColor = [UIColor clearColor];\
@@ -43,11 +46,7 @@ view.backgroundColor = [UIColor clearColor];\
     return IssueNamePlusTableMax(_name_);\
 }\
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {\
-    static NSString *const reuseIdentifier=@"reuseIdentifier";\
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier ];\
-    if (!cell) {\
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];\
-    }\
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];\
     cell.textLabel.text =  [[self class] typeDisplayName:indexPath.row] ;\
     cell.textLabel.textAlignment=NSTextAlignmentCenter;\
     return cell;\

@@ -79,7 +79,6 @@ typedef NS_ENUM(NSInteger,IssueNamePlusTable(IssueType)){
             break;
     }
     if (vc) {
-        [self.navigationController setNavigationBarHidden:NO];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -125,7 +124,6 @@ static  NSString  *const reuseIdentifier=@"reuseIdentifier";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-
     UILabel *label = (UILabel *)[cell viewWithTag:100];
     label.text =  [[self class] typeDisplayName:indexPath.row] ;
     return cell;

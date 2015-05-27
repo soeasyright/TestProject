@@ -2,7 +2,7 @@
 //  TableViewController.m
 //  EZProject
 //
-//  Created by Viscovery on 2015/5/26.
+//  Created by soeasyright on 2015/5/26.
 //  Copyright (c) 2015年 soeasyright. All rights reserved.
 //
 
@@ -15,6 +15,8 @@
 @property (nonatomic,assign) BOOL isEditing;
 @end
 
+
+static NSString *reuseIdentifier = @"reuseIdentifier";
 @implementation TableViewController
 @synthesize sectionA,sectionB;
 - (void)viewDidLoad {
@@ -29,6 +31,8 @@
     self.mTableView.backgroundColor = [UIColor whiteColor];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
+    
+    [self.mTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reuseIdentifier];
     [self.view addSubview:self.mTableView];
     
     //clear 多餘隔線
@@ -69,15 +73,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *reuseIdentifier = @"reuseIdentifier";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    /*
+    //if no declare [self.mTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
+    //use bolow
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier ];
     
-
     //reuseCell
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
-    
+    */
     cell.textLabel.text =  indexPath.section == 0 ?  sectionA[indexPath.row] : sectionB[indexPath.row];
     cell.textLabel.textAlignment=NSTextAlignmentCenter;    
     return cell;

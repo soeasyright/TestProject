@@ -2,7 +2,7 @@
 //  
 //  EZProject
 //
-//  Created by Viscovery on 2015/5/20.
+//  Created by soeasyright on 2015/5/20.
 //  Copyright (c) 2015年 soeasyright. All rights reserved.
 //
 
@@ -180,6 +180,7 @@ EZTableCreate(Graphices);
         default:
             break;
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 }
 

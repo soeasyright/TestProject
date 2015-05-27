@@ -2,13 +2,13 @@
 //  AnimationTableVC.m
 //  EZProject
 //
-//  Created by Viscovery on 2015/5/26.
+//  Created by soeasyright on 2015/5/26.
 //  Copyright (c) 2015年 soeasyright. All rights reserved.
 //
 
 #import "AnimationTableVC.h"
 #import "EZMacro.h"
-
+#import "CircularLoaderVC.h"
 @interface AnimationTableVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIDynamicAnimator *animator;
@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger,IssueNamePlusTable(AnimationTableVC)){
     FlipViewH,
     RotateView,
     RotateViewAndFlipViewV,
+    CircularLoader,
     IssueNamePlusTableMax(AnimationTableVC)
 };
 EZTableCreate(AnimationTableVC);
@@ -36,12 +37,13 @@ EZTableCreate(AnimationTableVC);
              @(FlipViewH) : EZEnum2String(FlipViewH),
              @(RotateView) : EZEnum2String(RotateView),
              @(RotateViewAndFlipViewV) : EZEnum2String(RotateViewAndFlipViewV),
+             @(CircularLoader) : EZEnum2String(CircularLoader),
              };
 }
 
 #pragma mark <UITableViewDelegate>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case SnapBehavior:
         {
@@ -74,10 +76,16 @@ EZTableCreate(AnimationTableVC);
             imageView.transform = CGAffineTransformConcat(imageView.transform, viewFlipTrans);
         }
             break;
+        case CircularLoader:
+        {
+            CircularLoaderVC *vc = [[CircularLoaderVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
         default:
             break;
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 

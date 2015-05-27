@@ -10,6 +10,7 @@
 		062CBA7C1B14AA6F00DC6E37 /* AnimationTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBA7B1B14AA6F00DC6E37 /* AnimationTableVC.m */; };
 		062CBA801B14B2F600DC6E37 /* BaseViewTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBA7F1B14B2F600DC6E37 /* BaseViewTableVC.m */; };
 		062CBA831B14B36E00DC6E37 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBA821B14B36E00DC6E37 /* TableViewController.m */; };
+		062CBA861B155A9400DC6E37 /* CircularLoaderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBA851B155A9400DC6E37 /* CircularLoaderVC.m */; };
 		0654A73F1B0730D700905994 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0654A73E1B0730D700905994 /* Media.xcassets */; };
 		0654A7481B076F3400905994 /* LifeCycleTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7471B076F3400905994 /* LifeCycleTableVC.m */; };
 		0654A7511B09737600905994 /* LifeCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7501B09737600905994 /* LifeCycleViewController.m */; };
@@ -41,6 +42,8 @@
 		062CBA7F1B14B2F600DC6E37 /* BaseViewTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewTableVC.m; path = BaseView/BaseViewTableVC.m; sourceTree = "<group>"; };
 		062CBA811B14B36E00DC6E37 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = BaseView/TableViewController.h; sourceTree = "<group>"; };
 		062CBA821B14B36E00DC6E37 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = BaseView/TableViewController.m; sourceTree = "<group>"; };
+		062CBA841B155A9400DC6E37 /* CircularLoaderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularLoaderVC.h; path = Animation/CircularLoaderVC.h; sourceTree = "<group>"; };
+		062CBA851B155A9400DC6E37 /* CircularLoaderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularLoaderVC.m; path = Animation/CircularLoaderVC.m; sourceTree = "<group>"; };
 		0654A73E1B0730D700905994 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		0654A7461B076F3400905994 /* LifeCycleTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCycleTableVC.h; sourceTree = "<group>"; };
 		0654A7471B076F3400905994 /* LifeCycleTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCycleTableVC.m; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 			children = (
 				062CBA7A1B14AA6E00DC6E37 /* AnimationTableVC.h */,
 				062CBA7B1B14AA6F00DC6E37 /* AnimationTableVC.m */,
+				062CBA841B155A9400DC6E37 /* CircularLoaderVC.h */,
+				062CBA851B155A9400DC6E37 /* CircularLoaderVC.m */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 			files = (
 				7CB309881B0B86E1007E03B3 /* LiftCycleViewControllerWithStroyBoard.m in Sources */,
 				0654A7541B09748500905994 /* LiftCycleViewControllerWithXib.m in Sources */,
+				062CBA861B155A9400DC6E37 /* CircularLoaderVC.m in Sources */,
 				7C15DC0A1B04EAA90024A217 /* AppDelegate.m in Sources */,
 				7C15DC071B04EAA90024A217 /* main.m in Sources */,
 				06EECF3F1B0CB86000F6A4FB /* FormatterTableVC.m in Sources */,

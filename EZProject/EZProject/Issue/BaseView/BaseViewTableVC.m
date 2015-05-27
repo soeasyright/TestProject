@@ -2,7 +2,7 @@
 //  BaseViewTableVC.m
 //  EZProject
 //
-//  Created by Viscovery on 2015/5/26.
+//  Created by soeasyright on 2015/5/26.
 //  Copyright (c) 2015年 soeasyright. All rights reserved.
 //
 
@@ -31,7 +31,7 @@ EZTableCreate(BaseViewTableVC);
 
 #pragma mark <UITableViewDelegate>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UIViewController *vc=nil;
     switch (indexPath.row) {
         case TableView:
@@ -41,9 +41,9 @@ EZTableCreate(BaseViewTableVC);
             break;
     }
     if (vc) {
-        [self.navigationController setNavigationBarHidden:NO];
         [self.navigationController pushViewController:vc animated:YES];
     }
+    
 }
 
 
