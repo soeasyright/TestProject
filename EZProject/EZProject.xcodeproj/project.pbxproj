@@ -11,6 +11,7 @@
 		062CBA801B14B2F600DC6E37 /* BaseViewTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBA7F1B14B2F600DC6E37 /* BaseViewTableVC.m */; };
 		062CBA831B14B36E00DC6E37 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBA821B14B36E00DC6E37 /* TableViewController.m */; };
 		062CBA861B155A9400DC6E37 /* CircularLoaderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBA851B155A9400DC6E37 /* CircularLoaderVC.m */; };
+		062CBAF11B18B96300DC6E37 /* EZTestFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 062CBAF01B18B96300DC6E37 /* EZTestFunction.m */; };
 		0654A73F1B0730D700905994 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0654A73E1B0730D700905994 /* Media.xcassets */; };
 		0654A7481B076F3400905994 /* LifeCycleTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7471B076F3400905994 /* LifeCycleTableVC.m */; };
 		0654A7511B09737600905994 /* LifeCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0654A7501B09737600905994 /* LifeCycleViewController.m */; };
@@ -44,6 +45,8 @@
 		062CBA821B14B36E00DC6E37 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = BaseView/TableViewController.m; sourceTree = "<group>"; };
 		062CBA841B155A9400DC6E37 /* CircularLoaderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularLoaderVC.h; path = Animation/CircularLoaderVC.h; sourceTree = "<group>"; };
 		062CBA851B155A9400DC6E37 /* CircularLoaderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularLoaderVC.m; path = Animation/CircularLoaderVC.m; sourceTree = "<group>"; };
+		062CBAEF1B18B96300DC6E37 /* EZTestFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EZTestFunction.h; path = Efficiency/EZTestFunction.h; sourceTree = "<group>"; };
+		062CBAF01B18B96300DC6E37 /* EZTestFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EZTestFunction.m; path = Efficiency/EZTestFunction.m; sourceTree = "<group>"; };
 		0654A73E1B0730D700905994 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		0654A7461B076F3400905994 /* LifeCycleTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCycleTableVC.h; sourceTree = "<group>"; };
 		0654A7471B076F3400905994 /* LifeCycleTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCycleTableVC.m; sourceTree = "<group>"; };
@@ -245,6 +248,8 @@
 			children = (
 				7C15DC471B04F5620024A217 /* EfficiencyTableVC.h */,
 				7C15DC481B04F5620024A217 /* EfficiencyTableVC.m */,
+				062CBAEF1B18B96300DC6E37 /* EZTestFunction.h */,
+				062CBAF01B18B96300DC6E37 /* EZTestFunction.m */,
 			);
 			name = Efficiency;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				0654A7481B076F3400905994 /* LifeCycleTableVC.m in Sources */,
 				7C15DC431B04EB480024A217 /* LifeCycle.m in Sources */,
 				7C15DC451B04EB480024A217 /* BaseVC.m in Sources */,
+				062CBAF11B18B96300DC6E37 /* EZTestFunction.m in Sources */,
 				06EECF431B0CBB1700F6A4FB /* GraphicesTableVC.m in Sources */,
 				7C15DC441B04EB480024A217 /* LifeCycleObject.m in Sources */,
 				7C15DC0D1B04EAA90024A217 /* EZProject.xcdatamodeld in Sources */,

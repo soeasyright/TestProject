@@ -27,7 +27,7 @@
     circle.strokeColor = [UIColor redColor].CGColor;
     
     UIBezierPath *path = [[UIBezierPath alloc] init];
-    circle.path =
+//    circle.path =
     [self.view.layer addSublayer:circle];
 }
 
