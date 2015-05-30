@@ -9,6 +9,7 @@
 #import "AnimationTableVC.h"
 #import "EZMacro.h"
 #import "CircularLoaderVC.h"
+#import "GradientProgressView.h"
 @interface AnimationTableVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIDynamicAnimator *animator;
@@ -25,6 +26,7 @@ typedef NS_ENUM(NSInteger,IssueNamePlusTable(AnimationTableVC)){
     RotateView,
     RotateViewAndFlipViewV,
     CircularLoader,
+    GradientProgress,
     IssueNamePlusTableMax(AnimationTableVC)
 };
 EZTableCreate(AnimationTableVC);
@@ -38,6 +40,7 @@ EZTableCreate(AnimationTableVC);
              @(RotateView) : EZEnum2String(RotateView),
              @(RotateViewAndFlipViewV) : EZEnum2String(RotateViewAndFlipViewV),
              @(CircularLoader) : EZEnum2String(CircularLoader),
+             @(GradientProgress) : EZEnum2String(GradientProgress),
              };
 }
 
@@ -82,6 +85,12 @@ EZTableCreate(AnimationTableVC);
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+        case GradientProgress:
+        {
+            UIView *gradient = [[GradientProgressView alloc] initWithFrame:self.view.frame];
+            [self.view addSubview:gradient];
+        }
+            break;
         default:
             break;
     }
@@ -100,9 +109,13 @@ EZTableCreate(AnimationTableVC);
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
-    imageView.image = [UIImage imageNamed:@"Download"];
-    imageView.center = self.view.center;
-    [self.view addSubview:imageView];
+    UIImageView *im = [[UIImageView alloc]initWithFrame:self.view.frame];
+    im.image = [UIImage imageNamed:@"testSample"];
+    im.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:im];
+//    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
+//    imageView.image = [UIImage imageNamed:@"Download"];
+//    imageView.center = self.view.center;
+//    [self.view addSubview:imageView];
 }
 @end
