@@ -22,8 +22,7 @@
     if (name) {
         _objectName=name;
     }
-    else
-    {
+    else{
         _objectName=@"noName";
     }
     NSLog(@"create %@",_objectName);
